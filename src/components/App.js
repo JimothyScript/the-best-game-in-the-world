@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      initialArray: this.initializeGame()
+      grid: this.initializeGame()
     }
   }
   generateNum() {
@@ -66,14 +66,13 @@ class App extends Component {
     }
   }
   render() {
-    console.log(this.state.initialArray);
     return (
       <div className="App">
         <div className="menu-container">
-          <Menu menuHandler={(e) => this.menuHandler(e)}/>
+          <Menu menuHandler={(e) => this.menuHandler(e)} />
         </div>
         <div className="board-container">
-          <Board />
+          <Board grid={this.state.grid} />
         </div>
       </div>
     );
