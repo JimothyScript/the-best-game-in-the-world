@@ -45,12 +45,16 @@ class App extends Component {
     // });
     return rowArr;
   }
+  menuHandler(e) {
+    // Find out which button was clicked.
+    console.log(e.target.className);
+  }
   render() {
-    console.log(this.state.initialArray);
+    // console.log(this.state.initialArray);
     return (
       <div className="App">
         <div className="menu-container">
-          <Menu />
+          <Menu menuHandler={(e) => this.menuHandler(e)}/>
         </div>
         <div className="board-container">
           <Board />
