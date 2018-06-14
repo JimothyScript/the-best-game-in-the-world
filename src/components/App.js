@@ -6,9 +6,15 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      initialArray: Array(50).fill(Array(50).fill(null))
+    }
+  }
+  test() {
+    console.log(this.state.initialArray);
   }
   render() {
+    this.test();
     return (
       <div className="App">
       </div>
