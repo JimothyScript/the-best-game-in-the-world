@@ -6,6 +6,12 @@ class Menu extends Component {
     return (
       <div>
         <h1>Menu</h1>
+        <div>
+          <button>START</button>
+          <button>PAUSE</button>
+          <button>RESUME</button>
+          <button>RESET</button>
+        </div>
       </div>
     );
   }
