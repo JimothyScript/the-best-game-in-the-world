@@ -49,8 +49,12 @@ class App extends Component {
     console.log(this.state.initialArray);
     return (
       <div className="App">
-        <Menu/>
-        <Board/>
+        <div className="menu-container">
+          <Menu />
+        </div>
+        <div className="board-container">
+          <Board />
+        </div>
       </div>
     );
   }
