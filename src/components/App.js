@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-// Will import 2 components: Menu and Board
+// Components
+import Menu from './Menu';
+import Board from './Board';
 // import logo from './logo.svg';
 import './App.css';
 
@@ -47,7 +49,8 @@ class App extends Component {
     console.log(this.state.initialArray);
     return (
       <div className="App">
-        <button onClick={() => this.initializeGame()}>Click</button>
+        <Menu/>
+        <Board/>
       </div>
     );
   }
