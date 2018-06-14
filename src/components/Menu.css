@@ -1,0 +1,18 @@
+.menu-box {
+  text-align: center;
+}
+
+.menu-btns button {
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  padding: 12px;
+  width: 80%;
+  border: none;
+  border-radius: 3px;
+  background-color: #3366FF;
+  color: snow;
+}
+
+.menu-btns button:hover {
+  background-color: #3333CC;
+}

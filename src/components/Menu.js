@@ -4,9 +4,9 @@ import './Menu.css';
 class Menu extends Component {
   render() {
     return (
-      <div>
-        <h1>Menu</h1>
-        <div>
+      <div className="menu-box">
+        <h1>TURN 1</h1>
+        <div className="menu-btns">
           <button>START</button>
           <button>PAUSE</button>
           <button>RESUME</button>
