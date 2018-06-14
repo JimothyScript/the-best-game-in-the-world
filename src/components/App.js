@@ -47,7 +47,23 @@ class App extends Component {
   }
   menuHandler(e) {
     // Find out which button was clicked.
-    console.log(e.target.className);
+    const buttonClicked = e.target.className;
+    switch(buttonClicked) {
+      case 'start':
+        console.log('Start!');
+        break;
+      case 'pause':
+        console.log('Pause!');
+        break;
+      case 'resume':
+        console.log('Resume!');
+        break;
+      case 'reset':
+        console.log('Reset!');
+        break;
+      default:
+        console.log('Something went wrong!');
+    }
   }
   render() {
     // console.log(this.state.initialArray);
