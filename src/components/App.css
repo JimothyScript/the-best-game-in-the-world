@@ -1,1 +1,17 @@
+.App {
+  display: grid;
+  grid-template-columns: 20% 800px;
+  justify-content: center;
+}
 
+.menu-container {
+  display: inline-block;
+  background-color: aliceblue;
+  align-items: center;
+}
+
+.board-container {
+  height: 800px;
+  background-color: lightgrey;
+  align-items: center;
+}
