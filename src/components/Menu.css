@@ -4,11 +4,12 @@
 
 .menu-btns button {
   font-size: 1.1em;
+  font-weight: bold;
   margin-bottom: 30px;
   padding: 16px;
   width: 80%;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   color: snow;
 }
 

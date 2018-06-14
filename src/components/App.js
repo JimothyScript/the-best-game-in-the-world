@@ -66,7 +66,7 @@ class App extends Component {
     }
   }
   render() {
-    // console.log(this.state.initialArray);
+    console.log(this.state.initialArray);
     return (
       <div className="App">
         <div className="menu-container">
