@@ -25,7 +25,7 @@ class App extends Component {
     const cellLength = 50;
     const rowArr = [];
 
-    // Lowest usually in the range of high 500s (23%) and
+    // Lowest usually in the range of high 500 (23%) and
     // maxRandomNum won't allow more than 750 (30%) to be populated.
     let maxRandomNum = Math.floor((rowLength * cellLength) / 3.33);
     let populate;
@@ -54,27 +54,32 @@ class App extends Component {
     // Find out which button was clicked.
     switch(buttonClicked) {
       case 'START':
+        // Will always start with the initial game state
         if (this.state.start) this.gameLoop(this.state.turnNumber);
         break;
       case 'PAUSE':
+        // Pass only when RESUME was clicked
         if (this.state.start || !this.state.pause) return;
-        console.log('PAUSE: only when RESUME is clicked');
+        console.log('*PAUSE*');
+        // Will clearInterval and keep current state
         this.setState({
           pause: !this.state.pause
         });
         break;
       case 'RESUME':
+        // Pass only when PAUSE was clicked
         if (this.state.start || this.state.pause) return;
-        console.log('RESUME: only when PAUSE is clicked');
+        console.log('*RESUME*');
+        // Will call on gameLoop with current state
         this.setState({
           pause: !this.state.pause
         });
         break;
       case 'RESET':
         const newGrid = this.initializeGame();
-
+        // Needs to clearInterval of the gameLoop
         this.setState({
-          grid: newGrid,
+          grid: [newGrid],
           turnNumber: 0,
           start: true,
           pause: false
@@ -83,9 +88,6 @@ class App extends Component {
       default:
         console.log('Something went wrong!');
     }
-  }
-  ruleSet(x) {
-    console.log('running...', x);
   }
   gameLoop(currentTurn) {
     const self = this;
@@ -107,7 +109,12 @@ class App extends Component {
     // 2. update this.state.turn by incremented value
     // 3. continue indefinitely until PAUSE, RESUME, or RESET intervenes
   }
+  ruleSet(x) {
+    console.log('running...', x);
+  }
   render() {
+    const latestTurn = this.state.grid.length - 1;
+
     return (
       <div className="App">
         <div className="menu-container">
@@ -118,7 +125,7 @@ class App extends Component {
             pause={this.state.pause} />
         </div>
         <div className="board-container">
-          <Board grid={this.state.grid[this.state.grid.length - 1]} />
+          <Board grid={this.state.grid[latestTurn]} />
         </div>
       </div>
     );
