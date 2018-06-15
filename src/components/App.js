@@ -48,7 +48,7 @@ class App extends Component {
 
     return rowArr;
   }
-  menuHandler(e) {
+  handleClick(e) {
     const buttonClicked = e.target.innerText;
 
     // Find out which button was clicked.
@@ -61,7 +61,7 @@ class App extends Component {
         // Pass only when RESUME was clicked
         if (this.state.start || !this.state.pause) return;
         console.log('*PAUSE*');
-        // Will clearInterval and keep current state
+        // Basically a clearInterval, does nothing to current state except toggle pause
         this.setState({
           pause: !this.state.pause
         });
@@ -70,14 +70,14 @@ class App extends Component {
         // Pass only when PAUSE was clicked
         if (this.state.start || this.state.pause) return;
         console.log('*RESUME*');
-        // Will call on gameLoop with current state
+        // Will call on gameLoop with current state after toggling pause
         this.setState({
           pause: !this.state.pause
         });
         break;
       case 'RESET':
         const newGrid = this.initializeGame();
-        // Needs to clearInterval of the gameLoop
+        // clearInterval of the gameLoop and set all 4 states back to initial state
         this.setState({
           grid: [newGrid],
           turnNumber: 0,
@@ -90,9 +90,8 @@ class App extends Component {
     }
   }
   gameLoop(currentTurn) {
-    const self = this;
-
     console.log('Game Start!', 'Current Turn is: ' + currentTurn);
+    const self = this;
 
     setInterval(function() {
       self.ruleSet('ok');
@@ -105,9 +104,10 @@ class App extends Component {
     });
 
     // At the end of the loop:
-    // 1. update this.state.grid with evaluated grid
-    // 2. update this.state.turn by incremented value
+    // 1. update this.state.grid with evaluated grid => grid: [...this.state.grid, newGrid]
+    // 2. update this.state.turn by incremented value => turnNumber: this.state.turnNumber + 1
     // 3. continue indefinitely until PAUSE, RESUME, or RESET intervenes
+    // 4. this loop will only change start and pause state once!
   }
   ruleSet(x) {
     console.log('running...', x);
@@ -119,7 +119,7 @@ class App extends Component {
       <div className="App">
         <div className="menu-container">
           <Menu
-            menuHandler={(e) => this.menuHandler(e)}
+            handleClick={(e) => this.handleClick(e)}
             turnNumber={this.state.turnNumber}
             start={this.state.start}
             pause={this.state.pause} />

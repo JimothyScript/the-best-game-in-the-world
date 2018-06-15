@@ -1,10 +1,11 @@
 import React from 'react';
 import './Menu.css';
 
-const Menu = ({menuHandler, turnNumber, start, pause}) => {
+
+const Menu = ({handleClick, turnNumber, start, pause}) => {
   const options = ['start', 'pause', 'resume', 'reset'];
 
-  // 'pause' and 'resume' will be gray initially
+  // 'pause' and 'resume' will be locked initially
   if (start) {
     options[1] = 'pause lock';
     options[2] = 'resume lock';
@@ -26,7 +27,7 @@ const Menu = ({menuHandler, turnNumber, start, pause}) => {
           return <button
             key={i}
             className={item}
-            onClick={(e) => menuHandler(e)}>
+            onClick={(e) => handleClick(e)}>
             {item.split(' ')[0].toUpperCase()}
           </button>
         })
