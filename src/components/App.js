@@ -69,7 +69,8 @@ class App extends Component {
         this.setState({
           grid: newGrid,
           turnNumber: 0,
-          start: true
+          start: true,
+          pause: false
         });
         break;
       default:
@@ -95,7 +96,8 @@ class App extends Component {
           <Menu
             menuHandler={(e) => this.menuHandler(e)}
             turnNumber={this.state.turnNumber}
-            start={this.state.start} />
+            start={this.state.start}
+            pause={this.state.pause} />
         </div>
         <div className="board-container">
           <Board grid={this.state.grid} />

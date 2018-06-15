@@ -6,7 +6,13 @@ const Menu = ({menuHandler, turnNumber, start}) => {
 
   // 'pause' and 'resume' will be gray initially
   if (start) {
+    buttonNames[1] = 'pause lock';
+    buttonNames[2] = 'resume lock';
+  } else {
+    buttonNames[0] = 'start lock';
   }
+
+  console.log(buttonNames);
 
   return (
     <div className="menu-box">
@@ -17,7 +23,7 @@ const Menu = ({menuHandler, turnNumber, start}) => {
             key={i}
             className={btn}
             onClick={(e) => menuHandler(e)}>
-            {btn.toUpperCase()}
+            {btn.split(' ')[0].toUpperCase()}
           </button>
         })
       }</div>
