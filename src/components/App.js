@@ -77,7 +77,7 @@ class App extends Component {
     // At the end of the loop:
     // 1. update this.state.grid with evaluated grid
     // 2. update this.state.turn by incremented value
-    // 3. continue indefinately until PAUSE,
+    // 3. continue indefinitely until PAUSE, RESUME, or RESET intervenes
   }
   render() {
     return (
@@ -85,8 +85,7 @@ class App extends Component {
         <div className="menu-container">
           <Menu
             menuHandler={(e) => this.menuHandler(e)}
-            turn={this.state.turn}
-          />
+            turn={this.state.turn} />
         </div>
         <div className="board-container">
           <Board grid={this.state.grid} />
