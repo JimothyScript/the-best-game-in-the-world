@@ -1,36 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Menu.css';
 
-class Menu extends Component {
-  render() {
-    return (
-      <div className="menu-box">
-        <h1>TURN 0</h1>
-        <div className="menu-btns">
-          <button
-            className="start"
-            onClick={(e) => this.props.menuHandler(e)}>
-            START
-          </button>
-          <button
-            className="pause"
-            onClick={(e) => this.props.menuHandler(e)}>
-            PAUSE
-          </button>
-          <button
-            className="resume"
-            onClick={(e) => this.props.menuHandler(e)}>
-            RESUME
-          </button>
-          <button
-            className="reset"
-            onClick={(e) => this.props.menuHandler(e)}>
-            RESET
-          </button>
-        </div>
-      </div>
-    );
-  }
+const Menu = ({menuHandler, turn}) => {
+  const buttonNames = ['start', 'pause', 'resume', 'reset'];
+
+  return (
+    <div className="menu-box">
+      <h1>TURN {turn}</h1>
+      <div className="menu-btns">{
+        buttonNames.map((btn, i) => {
+          return <button key={i} className={btn} onClick={(e) => menuHandler(e)}>{btn.toUpperCase()}</button>
+        })
+      }</div>
+    </div>
+  );
 }
 
 export default Menu;
