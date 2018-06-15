@@ -1,6 +1,6 @@
 .App {
   display: grid;
-  grid-template-columns: 20% 800px;
+  grid-template-columns: 20% 900px;
   justify-content: center;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .board-container {
-  height: 800px;
+  height: 900px;
   background-color: lightgrey;
   align-items: center;
 }

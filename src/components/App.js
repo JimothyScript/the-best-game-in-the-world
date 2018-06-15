@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      grid: this.initializeGame()
+      grid: this.initializeGame(),
+      turn: 0
     }
   }
   generateNum() {
@@ -50,19 +51,19 @@ class App extends Component {
     const buttonClicked = e.target.className;
     switch(buttonClicked) {
       case 'start':
-        console.log('Start!');
+        console.log('Start');
         break;
       case 'pause':
-        console.log('Pause!');
+        console.log('Pause');
         break;
       case 'resume':
-        console.log('Resume!');
+        console.log('Resume');
         break;
       case 'reset':
-        console.log('Reset!');
         const newGrid = this.initializeGame();
         this.setState({
-          grid: newGrid
+          grid: newGrid,
+          turn: 0
         });
         break;
       default:
@@ -73,7 +74,10 @@ class App extends Component {
     return (
       <div className="App">
         <div className="menu-container">
-          <Menu menuHandler={(e) => this.menuHandler(e)} />
+          <Menu
+            menuHandler={(e) => this.menuHandler(e)}
+            turn={this.state.turn}
+          />
         </div>
         <div className="board-container">
           <Board grid={this.state.grid} />

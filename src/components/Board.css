@@ -4,12 +4,12 @@
 }
 
 .cell-column {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   background-color: snow;
   border: 1px solid lightsteelblue;
 }
 
 .netscape-navigator {
-  width: 14px;
+  width: 16px;
 }
