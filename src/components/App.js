@@ -104,48 +104,42 @@ class App extends Component {
     }
   }
   gameLoop() {
-    // What this loop needs to achieve:
     // * Continue indefinitely until PAUSE(clearInterval), RESUME(gameLoop), or RESET(clearInterval/setState()) intervenes
     // * Update this.state.grid with evaluated grid => grid: [...this.state.grid, newGrid]
     // * Update this.state.turn by incremented value => turnNumber: this.state.turnNumber + 1
-    console.log('Current Turn is: ' + this.state.turnNumber);
-
-    /*
-    const rowLen = this.state.grid[0].length; // 50
-    const colLen = this.state.grid[0][0].length; // 50
-    // const newGrid = []; // The new evaluated grid:
-
-    for (let row = 0; row < rowLen; row++) {
-      // const cellArr = []; // filled with evaluated cells
-      for (let col = 0; col < colLen; col++) {
-        // const cell = this.state.grid[currentTurn][row][col];
-        // Sends each cell into a function that checks neighbors:
-        // this.ruleSet(cell);
-      }
-      // newGrid.push(cellArr); // push evaluated cells to newGrid
-    }
-    */
-
-    /* <--- Comment out this line to activate setState();
-    this.setState({
-      grid: [...this.state.grid, newGrid],
-      turnNumber: this.state.turnNumber + 1
-    });
-    //*/
 
     this.interval = setInterval(() => {
-      console.log('Are we there yet?');
-    }, 1000);
+      // KEEP AN EYE ON TURN NUMBER:
+      console.log(`Current Turn is: ${this.state.turnNumber + 1}`);
 
-    /* <--- Comment out this line to activate setState();
-    const self = this;
-    setInterval(function() {
-      self.setState({
-        grid: [...self.state.grid, self.initializeGame()],
-        turnNumber: self.state.turnNumber + 1
+      const rowLen = this.state.grid[0].length; // 50
+      const colLen = this.state.grid[0][0].length; // 50
+      // const newGrid = []; // The new evaluated grid:
+
+      for (let row = 0; row < rowLen; row++) {
+        // const cellArr = []; // filled with evaluated cells
+        for (let col = 0; col < colLen; col++) {
+          // const cell = this.state.grid[currentTurn][row][col];
+          // Sends each cell into a function that checks neighbors:
+          // this.ruleSet(cell);
+        }
+        // newGrid.push(cellArr); // push evaluated cells to newGrid
+      }
+
+      /* <--- if newGrid has been successfully created
+      this.setState({
+        grid: [...this.state.grid, newGrid],
+        turnNumber: this.state.turnNumber + 1
       });
-    }, 1000);
-    //*/
+      //=============================================*/
+
+      /* <--- turnNumber TEST LOOP
+      this.setState({
+        turnNumber: this.state.turnNumber + 1
+      });
+      //===================================*/
+    }, 3000);
+
   }
   ruleSet(cell) {
     console.log('Algorithm Running...', cell);
