@@ -91,11 +91,10 @@ class App extends Component {
   }
   gameLoop(currentTurn) {
     console.log('Game Start!', 'Current Turn is: ' + currentTurn);
-    const self = this;
-
-    setInterval(function() {
-      self.ruleSet('ok');
-    }, 1000);
+    // const self = this;
+    // setInterval(function() {
+    //   self.ruleSet('ok');
+    // }, 1000);
 
     this.setState({
       turnNumber: this.state.turnNumber + 1,
@@ -103,14 +102,14 @@ class App extends Component {
       pause: !this.state.pause
     });
 
-    // At the end of the loop:
+    // What this loop needs to achieve:
     // 1. update this.state.grid with evaluated grid => grid: [...this.state.grid, newGrid]
     // 2. update this.state.turn by incremented value => turnNumber: this.state.turnNumber + 1
-    // 3. continue indefinitely until PAUSE, RESUME, or RESET intervenes
+    // 3. continue indefinitely until PAUSE(clearInterval), RESUME(gameLoop), or RESET(clearInterval/setState()) intervenes
     // 4. this loop will only change start and pause state once!
   }
   ruleSet(x) {
-    console.log('running...', x);
+    console.log('Algorithm Running...', x);
   }
   render() {
     const latestTurn = this.state.grid.length - 1;
