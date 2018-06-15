@@ -56,6 +56,7 @@ class App extends Component {
       case 'START':
         // Will always start with the initial game state
         if (this.state.start) {
+          console.log('*START*');
           this.gameLoop();
 
           this.setState({
@@ -94,12 +95,12 @@ class App extends Component {
   }
   gameLoop() {
     // What this loop needs to achieve:
-    // 1. update this.state.grid with evaluated grid => grid: [...this.state.grid, newGrid]
-    // 2. update this.state.turn by incremented value => turnNumber: this.state.turnNumber + 1
-    // 3. continue indefinitely until PAUSE(clearInterval), RESUME(gameLoop), or RESET(clearInterval/setState()) intervenes
-    // 4. this loop will only change start and pause state once!
-    console.log('Game Start!', 'Current Turn is: ' + this.state.turnNumber);
+    // * Continue indefinitely until PAUSE(clearInterval), RESUME(gameLoop), or RESET(clearInterval/setState()) intervenes
+    // * Update this.state.grid with evaluated grid => grid: [...this.state.grid, newGrid]
+    // * Update this.state.turn by incremented value => turnNumber: this.state.turnNumber + 1
+    console.log('Current Turn is: ' + this.state.turnNumber);
 
+    /*
     const rowLen = this.state.grid[0].length; // 50
     const colLen = this.state.grid[0][0].length; // 50
     // const newGrid = []; // The new evaluated grid:
@@ -109,12 +110,11 @@ class App extends Component {
       for (let col = 0; col < colLen; col++) {
         // const cell = this.state.grid[currentTurn][row][col];
         // Sends each cell into a function that checks neighbors:
-        // ruleSet(cell);
+        // this.ruleSet(cell);
       }
       // newGrid.push(cellArr); // push evaluated cells to newGrid
     }
-
-    // Once loop is done newGrid will be ready to be pushed to the grid state array
+    */
 
     /* <--- Comment out this line to activate setState();
     this.setState({
@@ -123,11 +123,15 @@ class App extends Component {
     });
     //*/
 
-    // const self = this;
-    // setInterval(function() {
-    //   self.ruleSet('ok');
-    // }, 1000);
-
+    ///* <--- Comment out this line to activate setState();
+    const self = this;
+    setInterval(function() {
+      self.setState({
+        grid: [...self.state.grid, self.initializeGame()],
+        turnNumber: self.state.turnNumber + 1
+      });
+    }, 1000);
+    //*/
   }
   ruleSet(x) {
     console.log('Algorithm Running...', x);
