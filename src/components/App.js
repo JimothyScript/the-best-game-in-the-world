@@ -58,10 +58,18 @@ class App extends Component {
         if (this.state.start) this.gameLoop(this.state.turnNumber);
         break;
       case 'PAUSE':
+        if (this.state.start) return;
         console.log('PAUSE');
+        this.setState({
+          pause: !this.state.pause
+        });
         break;
       case 'RESUME':
+        if (this.state.start || !this.state.pause) return;
         console.log('RESUME');
+        this.setState({
+          pause: !this.state.pause
+        });
         break;
       case 'RESET':
         const newGrid = this.initializeGame();
