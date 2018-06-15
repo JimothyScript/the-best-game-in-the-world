@@ -15,6 +15,9 @@ class App extends Component {
       pause: false
     }
   }
+  componentWillUnmount() {
+    clearInterval(this.interval); // Might not need this
+  }
   generateNum() {
     return Math.ceil(Math.random() * 4);
   }
@@ -55,6 +58,7 @@ class App extends Component {
       case 'START':
         if (this.state.start) {
           console.log('*START*'); // Runs once and remains locked until RESET is clicked
+
           this.gameLoop();
 
           this.setState({
@@ -62,30 +66,38 @@ class App extends Component {
             pause: !this.state.pause
           });
         }
+
         break;
       case 'PAUSE':
         if (this.state.start || !this.state.pause) return;
         console.log('*PAUSE*'); // Pass only when RESUME was clicked
 
-        // Basically a clearInterval, does nothing to current state except toggle pause
+        clearInterval(this.interval); // Does nothing to current state except toggle pause
+
         this.setState({ pause: !this.state.pause });
+
         break;
       case 'RESUME':
         if (this.state.start || this.state.pause) return;
         console.log('*RESUME*'); // Pass only when PAUSE was clicked
 
+        this.gameLoop();
+
         // Will call on gameLoop with current state after toggling pause
         this.setState({ pause: !this.state.pause });
+
         break;
       case 'RESET':
         const newGrid = this.initializeGame();
-        // clearInterval of the gameLoop and set ALL state back to initial state
+        if (!this.state.start) clearInterval(this.interval); // Only after START was clicked
+
         this.setState({
           grid: [newGrid],
           turnNumber: 0,
           start: true,
           pause: false
         });
+
         break;
       default:
         console.log('Something went wrong!');
@@ -121,7 +133,11 @@ class App extends Component {
     });
     //*/
 
-    ///* <--- Comment out this line to activate setState();
+    this.interval = setInterval(() => {
+      console.log('Are we there yet?');
+    }, 1000);
+
+    /* <--- Comment out this line to activate setState();
     const self = this;
     setInterval(function() {
       self.setState({

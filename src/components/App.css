@@ -8,6 +8,7 @@
   display: inline-block;
   background-color: snow;
   align-items: center;
+  border-right: 1px solid lightsteelblue;
 }
 
 .board-container {
