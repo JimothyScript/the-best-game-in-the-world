@@ -11,5 +11,9 @@
   width: 16px;
   height: 16px;
   background-color: snow;
-  border: 1px solid gold;
+  border: 1px solid lightsteelblue;
+}
+
+.netscape-navigator {
+  width: 14px;
 }

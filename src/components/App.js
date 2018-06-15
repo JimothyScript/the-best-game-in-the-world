@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 // Components
 import Menu from './Menu';
 import Board from './Board';
-// import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -60,6 +59,10 @@ class App extends Component {
         break;
       case 'reset':
         console.log('Reset!');
+        const newGrid = this.initializeGame();
+        this.setState({
+          grid: newGrid
+        });
         break;
       default:
         console.log('Something went wrong!');

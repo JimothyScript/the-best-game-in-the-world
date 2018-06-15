@@ -8,9 +8,12 @@ class Board extends Component {
       <div className="board-box">
         {
           this.props.grid.map((row, i) => {
-            return <div key={i} className="cell-row">{
+            return <div key={i} className="cell-row">
+              {
                 row.map((column, j) => {
-                  return <div key={j} className="cell-column">{column}</div>
+                  return <div key={j} className="cell-column">
+                    {column ? <img className="netscape-navigator" src="images/netscape.ico"/> : column}
+                  </div>
                 })
               }
             </div>
