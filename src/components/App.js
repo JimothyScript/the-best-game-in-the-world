@@ -47,11 +47,12 @@ class App extends Component {
     return rowArr;
   }
   menuHandler(e) {
-    // Find out which button was clicked.
     const buttonClicked = e.target.className;
+
+    // Find out which button was clicked.
     switch(buttonClicked) {
       case 'start':
-        console.log('Start');
+        this.gameLoop(this.state.turn);
         break;
       case 'pause':
         console.log('Pause');
@@ -69,6 +70,14 @@ class App extends Component {
       default:
         console.log('Something went wrong!');
     }
+  }
+  gameLoop(currentTurn) {
+    console.log('Game Start!', 'Current Turn is: ' + currentTurn);
+
+    // At the end of the loop:
+    // 1. update this.state.grid with evaluated grid
+    // 2. update this.state.turn by incremented value
+    // 3. continue indefinately until PAUSE,
   }
   render() {
     return (
