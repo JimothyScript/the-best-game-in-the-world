@@ -20,17 +20,17 @@ class App extends Component {
   }
   initializeGame() {
     // Basically the Game Initializer
-    // Populate approximately 25%, which is around 625, out of 2,500 cells programmatically
+    // Populate approximately 25%, which is around 625, out of 2,500 cells
     const rowLength = 50;
     const cellLength = 50;
     const rowArr = [];
-    let cellArr = [];
 
-    // Usually in the range of high 500s and won't allow more than 750 (30%) to be populated.
+    // Usually in the range of high 500s (23%) and won't allow more than 750 (30%) to be populated.
     let maxRandomNum = Math.floor((rowLength * cellLength) / 3.33);
     let populate;
 
     for (let row = 0; row < rowLength; row++) {
+      const cellArr = [];
       for (let cell = 0; cell < cellLength; cell++) {
         populate = this.generateNum();
         if (populate === 1 && maxRandomNum > 0) {
@@ -41,12 +41,8 @@ class App extends Component {
         }
       }
       rowArr.push(cellArr);
-      cellArr = [];
     }
 
-    // this.setState({
-    //   initialArray: [...this.state.initialArray, rowArr]
-    // });
     return rowArr;
   }
   menuHandler(e) {
