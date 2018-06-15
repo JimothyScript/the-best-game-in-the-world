@@ -9,14 +9,14 @@ class App extends Component {
     super(props);
 
     this.state = {
-      grid: this.initializeGame(),
+      grid: [this.initializeGame()],
       turnNumber: 0,
       start: true,
       pause: false
     }
   }
   generateNum() {
-    return Math.round(Math.random() * 4);
+    return Math.ceil(Math.random() * 4);
   }
   initializeGame() {
     // Basically the Game Initializer
@@ -25,7 +25,8 @@ class App extends Component {
     const cellLength = 50;
     const rowArr = [];
 
-    // Usually in the range of high 500s (23%) and won't allow more than 750 (30%) to be populated.
+    // Lowest usually in the range of high 500s (23%) and
+    // maxRandomNum won't allow more than 750 (30%) to be populated.
     let maxRandomNum = Math.floor((rowLength * cellLength) / 3.33);
     let populate;
 
@@ -34,6 +35,8 @@ class App extends Component {
       for (let cell = 0; cell < cellLength; cell++) {
         populate = this.generateNum();
         if (populate === 1 && maxRandomNum > 0) {
+          // To see how many populated:
+          // console.log('populated');
           cellArr.push(populate);
           maxRandomNum--;
         } else {
@@ -55,14 +58,14 @@ class App extends Component {
         break;
       case 'PAUSE':
         if (this.state.start || !this.state.pause) return;
-        console.log('PAUSE');
+        console.log('PAUSE: only when RESUME is clicked');
         this.setState({
           pause: !this.state.pause
         });
         break;
       case 'RESUME':
         if (this.state.start || this.state.pause) return;
-        console.log('RESUME');
+        console.log('RESUME: only when PAUSE is clicked');
         this.setState({
           pause: !this.state.pause
         });
@@ -81,18 +84,24 @@ class App extends Component {
         console.log('Something went wrong!');
     }
   }
+  ruleSet(x) {
+    console.log('running...', x);
+  }
   gameLoop(currentTurn) {
+    const self = this;
+
     console.log('Game Start!', 'Current Turn is: ' + currentTurn);
 
     setInterval(function() {
-      console.log('running...');
+      self.ruleSet('ok');
     }, 1000);
 
     this.setState({
-      start: !this.state.start,
       turnNumber: this.state.turnNumber + 1,
+      start: !this.state.start,
       pause: !this.state.pause
     });
+
     // At the end of the loop:
     // 1. update this.state.grid with evaluated grid
     // 2. update this.state.turn by incremented value
@@ -109,7 +118,7 @@ class App extends Component {
             pause={this.state.pause} />
         </div>
         <div className="board-container">
-          <Board grid={this.state.grid} />
+          <Board grid={this.state.grid[this.state.grid.length - 1]} />
         </div>
       </div>
     );
