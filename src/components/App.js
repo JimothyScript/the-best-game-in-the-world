@@ -84,6 +84,10 @@ class App extends Component {
   gameLoop(currentTurn) {
     console.log('Game Start!', 'Current Turn is: ' + currentTurn);
 
+    setInterval(function() {
+      console.log('running...');
+    }, 1000);
+
     this.setState({
       start: !this.state.start,
       turnNumber: this.state.turnNumber + 1,
