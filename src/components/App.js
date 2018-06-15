@@ -21,8 +21,9 @@ class App extends Component {
     const cellLength = 50;
     const rowArr = [];
     let cellArr = [];
-    // Won't allow more than 25% to be populated
-    let maxRandomNum = (rowLength * cellLength) / 4;
+
+    // Usually in the range of high 500s and won't allow more than 750 (30%) to be populated.
+    let maxRandomNum = Math.floor((rowLength * cellLength) / 3.33);
     let populate;
 
     for (let row = 0; row < rowLength; row++) {

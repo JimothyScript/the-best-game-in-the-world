@@ -3,7 +3,6 @@ import './Board.css';
 
 class Board extends Component {
   render() {
-    console.log(this.props.grid);
     return (
       <div className="board-box">
         {
@@ -12,7 +11,7 @@ class Board extends Component {
               {
                 row.map((column, j) => {
                   return <div key={j} className="cell-column">
-                    {column ? <img className="netscape-navigator" src="images/netscape.ico"/> : column}
+                    {column ? <img className="netscape-navigator" src="images/netscape.ico" alt="netscape navigator logo"/> : column}
                   </div>
                 })
               }
