@@ -9,7 +9,9 @@ class App extends Component {
     super(props);
     this.state = {
       grid: this.initializeGame(),
-      turn: 0
+      turnNumber: 0,
+      start: true,
+      pause: false
     }
   }
   generateNum() {
@@ -52,7 +54,7 @@ class App extends Component {
     // Find out which button was clicked.
     switch(buttonClicked) {
       case 'start':
-        this.gameLoop(this.state.turn);
+        this.gameLoop(this.state.turnNumber);
         break;
       case 'pause':
         console.log('Pause');
@@ -64,7 +66,7 @@ class App extends Component {
         const newGrid = this.initializeGame();
         this.setState({
           grid: newGrid,
-          turn: 0
+          turnNumber: 0
         });
         break;
       default:
@@ -85,7 +87,7 @@ class App extends Component {
         <div className="menu-container">
           <Menu
             menuHandler={(e) => this.menuHandler(e)}
-            turn={this.state.turn} />
+            turnNumber={this.state.turnNumber} />
         </div>
         <div className="board-container">
           <Board grid={this.state.grid} />
