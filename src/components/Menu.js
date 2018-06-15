@@ -1,7 +1,6 @@
 import React from 'react';
 import './Menu.css';
 
-
 const Menu = ({handleClick, turnNumber, start, pause}) => {
   const options = ['start', 'pause', 'resume', 'reset'];
 

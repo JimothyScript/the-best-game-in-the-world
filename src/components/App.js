@@ -51,12 +51,10 @@ class App extends Component {
   handleClick(e) {
     const buttonClicked = e.target.innerText;
 
-    // Find out which button was clicked.
     switch(buttonClicked) {
       case 'START':
-        // Will always start with the initial game state
         if (this.state.start) {
-          console.log('*START*');
+          console.log('*START*'); // Runs once and remains locked until RESET is clicked
           this.gameLoop();
 
           this.setState({
@@ -133,8 +131,8 @@ class App extends Component {
     }, 1000);
     //*/
   }
-  ruleSet(x) {
-    console.log('Algorithm Running...', x);
+  ruleSet(cell) {
+    console.log('Algorithm Running...', cell);
   }
   render() {
     const latestTurn = this.state.grid.length - 1;
