@@ -58,14 +58,14 @@ class App extends Component {
         if (this.state.start) this.gameLoop(this.state.turnNumber);
         break;
       case 'PAUSE':
-        if (this.state.start) return;
+        if (this.state.start || !this.state.pause) return;
         console.log('PAUSE');
         this.setState({
           pause: !this.state.pause
         });
         break;
       case 'RESUME':
-        if (this.state.start || !this.state.pause) return;
+        if (this.state.start || this.state.pause) return;
         console.log('RESUME');
         this.setState({
           pause: !this.state.pause
@@ -90,7 +90,8 @@ class App extends Component {
 
     this.setState({
       start: !this.state.start,
-      turnNumber: this.state.turnNumber + 1
+      turnNumber: this.state.turnNumber + 1,
+      pause: !this.state.pause
     });
     // At the end of the loop:
     // 1. update this.state.grid with evaluated grid

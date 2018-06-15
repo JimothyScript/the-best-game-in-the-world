@@ -11,10 +11,10 @@ const Menu = ({menuHandler, turnNumber, start, pause}) => {
   } else {
     options[0] = 'start lock';
     if (pause) {
+      options[2] = 'resume lock';
+    } else {
       options[1] = 'pause lock';
       options[2] = 'resume';
-    } else {
-      options[2] = 'resume lock';
     }
   }
 
