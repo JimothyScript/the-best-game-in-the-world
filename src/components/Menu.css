@@ -29,3 +29,6 @@
 .menu-btns button.reset {
   background-color: crimson;
 }
+.menu-btns button.lock {
+  background-color: gray;
+}

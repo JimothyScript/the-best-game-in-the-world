@@ -7,6 +7,7 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       grid: this.initializeGame(),
       turnNumber: 0,
@@ -49,24 +50,26 @@ class App extends Component {
     return rowArr;
   }
   menuHandler(e) {
-    const buttonClicked = e.target.className;
+    const buttonClicked = e.target.innerText;
 
     // Find out which button was clicked.
     switch(buttonClicked) {
-      case 'start':
-        this.gameLoop(this.state.turnNumber);
+      case 'START':
+        if (this.state.start) this.gameLoop(this.state.turnNumber);
         break;
-      case 'pause':
-        console.log('Pause');
+      case 'PAUSE':
+        console.log('PAUSE');
         break;
-      case 'resume':
-        console.log('Resume');
+      case 'RESUME':
+        console.log('RESUME');
         break;
-      case 'reset':
+      case 'RESET':
         const newGrid = this.initializeGame();
+
         this.setState({
           grid: newGrid,
-          turnNumber: 0
+          turnNumber: 0,
+          start: true
         });
         break;
       default:
@@ -76,6 +79,10 @@ class App extends Component {
   gameLoop(currentTurn) {
     console.log('Game Start!', 'Current Turn is: ' + currentTurn);
 
+    this.setState({
+      start: !this.state.start,
+      turnNumber: this.state.turnNumber + 1
+    });
     // At the end of the loop:
     // 1. update this.state.grid with evaluated grid
     // 2. update this.state.turn by incremented value
@@ -87,7 +94,8 @@ class App extends Component {
         <div className="menu-container">
           <Menu
             menuHandler={(e) => this.menuHandler(e)}
-            turnNumber={this.state.turnNumber} />
+            turnNumber={this.state.turnNumber}
+            start={this.state.start} />
         </div>
         <div className="board-container">
           <Board grid={this.state.grid} />
