@@ -14,6 +14,8 @@ class App extends Component {
       start: true,
       pause: false
     }
+
+    this.size = { rowLen: 50, colLen: 50 }
   }
   componentWillUnmount() {
     clearInterval(this.interval); // Might not need this
@@ -54,9 +56,8 @@ class App extends Component {
 
     switch(buttonClicked) {
       case 'START':
+        // Runs once and remains locked until RESET is clicked
         if (this.state.start) {
-          console.log('*START*'); // Runs once and remains locked until RESET is clicked
-
           this.gameLoop();
 
           this.setState({
@@ -71,7 +72,6 @@ class App extends Component {
         console.log('*PAUSE*'); // Pass only when RESUME was clicked
 
         clearInterval(this.interval); // Does nothing to current state except toggle pause
-
         this.setState({ pause: !this.state.pause });
 
         break;
@@ -80,14 +80,13 @@ class App extends Component {
         console.log('*RESUME*'); // Pass only when PAUSE was clicked
 
         this.gameLoop();
-
         // Will call on gameLoop with current state after toggling pause
         this.setState({ pause: !this.state.pause });
 
         break;
       case 'RESET':
-        const newGrid = this.initializeGame();
         if (!this.state.start) clearInterval(this.interval); // Only after START was clicked
+        const newGrid = this.initializeGame();
 
         this.setState({
           grid: [newGrid],
@@ -105,24 +104,20 @@ class App extends Component {
     // * Continue indefinitely until PAUSE(clearInterval), RESUME(gameLoop), or RESET(clearInterval/setState()) intervenes
     // * Update this.state.grid with evaluated grid => grid: [...this.state.grid, newGrid]
     // * Update this.state.turn by incremented value => turnNumber: this.state.turnNumber + 1
+    const { rowLen, colLen } = this.size;
 
     this.interval = setInterval(() => {
-      // KEEP AN EYE ON TURN NUMBER:
-      console.log(`Current Turn is: ${this.state.turnNumber + 1}`);
-
-      const rowLen = this.state.grid[0].length; // 50
-      const colLen = this.state.grid[0][0].length; // 50
+      const latestTurn = this.state.grid.length - 1;
       const newGrid = []; // The new evaluated grid:
 
       for (let row = 0; row < rowLen; row++) {
-        const cellArr = []; // filled with evaluated cells
+        const cellArr = []; // Fill with evaluated cells
 
         // this.state.grid[this.state.grid.length - 1][row].forEach((el, i) => {}); // Maybe this instead?
         for (let col = 0; col < colLen; col++) {
-          const cell = this.state.grid[this.state.grid.length - 1][row][col];
+          const cell = this.state.grid[latestTurn][row][col];
           // Sends each cell into a function that checks neighbors:
-          const result = this.brain(cell, row, col);
-          cellArr.push(result);
+          cellArr.push(this.brain(cell, row, col));
         }
         newGrid.push(cellArr); // push evaluated cells to newGrid
       }
@@ -134,12 +129,7 @@ class App extends Component {
       });
       //============================================*/
 
-      /* <--- turnNumber INCREMENT TEST
-      this.setState({
-        turnNumber: this.state.turnNumber + 1
-      });
-      //===================================*/
-    }, 2000);
+    }, 1000);
 
   }
   brain(cell, row, col) {
