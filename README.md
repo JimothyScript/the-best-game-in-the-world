@@ -50,4 +50,6 @@ are locked but when the __START__ button is clicked, you
 are able to toggle between __PAUSE__ and __RESUME__. The __RESET__
 button can be clicked at any point of the game to stop and restore the initial game state.
 
-[Repl.it link for algorithm](https://repl.it/@jamesscript7/brainForGameLoop)
+_Main Algorithm for the Game Rules:_
+
+[Repl.it link](https://repl.it/@jamesscript7/brainForGameLoop)
