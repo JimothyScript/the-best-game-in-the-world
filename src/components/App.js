@@ -127,9 +127,7 @@ class App extends Component {
         newGrid.push(cellArr); // push evaluated cells to newGrid
       }
 
-      console.log(newGrid);
-
-      /* <--- if newGrid has been successfully created
+      ///* <--- if newGrid has been successfully created
       this.setState({
         grid: [...this.state.grid, newGrid],
         turnNumber: this.state.turnNumber + 1
