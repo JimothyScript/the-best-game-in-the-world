@@ -22,7 +22,6 @@ class App extends Component {
     return Math.ceil(Math.random() * 4);
   }
   initializeGame() {
-    // Basically the Game Initializer
     // Populate approximately 25%, which is around 625, out of 2,500 cells
     const rowLen = 50;
     const colLen = 50;
@@ -38,8 +37,7 @@ class App extends Component {
       for (let col = 0; col < colLen; col++) {
         populate = this.generateNum();
         if (populate === 1 && maxRandomNum > 0) {
-          // To see how many populated:
-          // console.log('populated');
+          // console.log('populated'); // To see how many populated
           cellArr.push(populate);
           maxRandomNum--;
         } else {
@@ -114,35 +112,74 @@ class App extends Component {
 
       const rowLen = this.state.grid[0].length; // 50
       const colLen = this.state.grid[0][0].length; // 50
-      // const newGrid = []; // The new evaluated grid:
+      const newGrid = []; // The new evaluated grid:
 
       for (let row = 0; row < rowLen; row++) {
-        // const cellArr = []; // filled with evaluated cells
+        const cellArr = []; // filled with evaluated cells
+
+        // this.state.grid[this.state.grid.length - 1][row].forEach((el, i) => {}); // Maybe this instead?
         for (let col = 0; col < colLen; col++) {
-          // const cell = this.state.grid[currentTurn][row][col];
+          const cell = this.state.grid[this.state.grid.length - 1][row][col];
           // Sends each cell into a function that checks neighbors:
-          // this.ruleSet(cell);
+          const result = this.brain(cell, row, col);
+          cellArr.push(result);
         }
-        // newGrid.push(cellArr); // push evaluated cells to newGrid
+        newGrid.push(cellArr); // push evaluated cells to newGrid
       }
+
+      console.log(newGrid);
 
       /* <--- if newGrid has been successfully created
       this.setState({
         grid: [...this.state.grid, newGrid],
         turnNumber: this.state.turnNumber + 1
       });
-      //=============================================*/
+      //============================================*/
 
-      /* <--- turnNumber TEST LOOP
+      /* <--- turnNumber INCREMENT TEST
       this.setState({
         turnNumber: this.state.turnNumber + 1
       });
       //===================================*/
-    }, 3000);
+    }, 2000);
 
   }
-  ruleSet(cell) {
-    console.log('Algorithm Running...', cell);
+  brain(cell, row, col) {
+    let neighborCount = 0;
+    const arr = this.state.grid[this.state.grid.length - 1]
+
+    for (let i = -1; i < 2; i++) {
+      for (let j = -1; j < 2; j++) {
+        if (arr[row + i] && arr[col + j]) {
+          if (i === 0 && j === 0) {
+            // Rewrite logic to get rid of else statement
+          } else {
+            // console.log(`arr[${row + i}][${col + j}] = ${arr[row + i][col + j]}`);
+            if (arr[row + i][col + j]) {
+              neighborCount++;
+            }
+          }
+        }
+      }
+    }
+
+    if (cell) {
+      // populated cell logic
+      if (neighborCount < 2) {
+        return null;
+      } else if (neighborCount <= 3) {
+        return 1;
+      } else if (neighborCount > 3) {
+        return null;
+      }
+    } else {
+      // empty cell logic
+      if (neighborCount !== 0 && neighborCount % 3 === 0) {
+        return 1;
+      } else {
+        return null;
+      }
+    }
   }
   render() {
     const latestTurn = this.state.grid.length - 1;
