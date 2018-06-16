@@ -16,6 +16,7 @@ class App extends Component {
     }
 
     this.size = { rowLen: 50, colLen: 50 }
+    this.time = 500
   }
   componentWillUnmount() {
     clearInterval(this.interval); // Might not need this
@@ -108,28 +109,26 @@ class App extends Component {
 
     this.interval = setInterval(() => {
       const latestTurn = this.state.grid.length - 1;
-      const newGrid = []; // The new evaluated grid:
+      const newGrid = []; // The new evaluated grid
 
       for (let row = 0; row < rowLen; row++) {
         const cellArr = []; // Fill with evaluated cells
 
-        // this.state.grid[this.state.grid.length - 1][row].forEach((el, i) => {}); // Maybe this instead?
+        // this.state.grid[latestTurn][row].forEach((el, i) => {...}); // Maybe this instead?
         for (let col = 0; col < colLen; col++) {
           const cell = this.state.grid[latestTurn][row][col];
-          // Sends each cell into a function that checks neighbors:
+          // Send each cell into a this.brain that checks neighbors
           cellArr.push(this.brain(cell, row, col));
         }
         newGrid.push(cellArr); // push evaluated cells to newGrid
       }
 
-      ///* <--- if newGrid has been successfully created
       this.setState({
         grid: [...this.state.grid, newGrid],
         turnNumber: this.state.turnNumber + 1
       });
-      //============================================*/
 
-    }, 1000);
+    }, this.time);
 
   }
   brain(cell, row, col) {
@@ -140,7 +139,7 @@ class App extends Component {
       for (let j = -1; j < 2; j++) {
         if (arr[row + i] && arr[col + j]) {
           if (i === 0 && j === 0) {
-            // Rewrite logic to get rid of else statement
+            // Rewrite to get rid of the else statement
           } else {
             // console.log(`arr[${row + i}][${col + j}] = ${arr[row + i][col + j]}`);
             if (arr[row + i][col + j]) {
@@ -152,7 +151,7 @@ class App extends Component {
     }
 
     if (cell) {
-      // populated cell logic
+      // populated cell conditionals
       if (neighborCount < 2) {
         return null;
       } else if (neighborCount <= 3) {
@@ -161,7 +160,7 @@ class App extends Component {
         return null;
       }
     } else {
-      // empty cell logic
+      // empty cell conditionals
       if (neighborCount !== 0 && neighborCount % 3 === 0) {
         return 1;
       } else {

@@ -1,6 +1,9 @@
 # The Best Game in the World
 
 _Skills: React_
+
+[Link to the website!](https://netscape-evolve.surge.sh/)
+
 ![Main image of menu and board](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/main.png)
 
 ## Rules
@@ -37,12 +40,14 @@ npm i
 npm start
 ```
 
-Then click __START__ in the menu bar to watch the game evolve before you very eyes!
+## Then click START in the menu bar to watch the game evolve before your very eyes!
 
 _Notes on button behavior:_
 
-Once __START__ button is clicked it will remain locked until the
-__RESET__ button is clicked. The __PAUSE__ and __RESUME__ button
-are locked initially but when the __START__ button is clicked, you
+Once the __START__ button is clicked it will remain locked until the
+__RESET__ button is clicked. Initially, the __PAUSE__ and __RESUME__ button
+are locked but when the __START__ button is clicked, you
 are able to toggle between __PAUSE__ and __RESUME__. The __RESET__
 button can be clicked at any point of the game to stop and restore the initial game state.
+
+[Repl.it link for algorithm](https://repl.it/@jamesscript7/brainForGameLoop)
