@@ -8,25 +8,25 @@ _Skills: React_
 
 ## Rules
 
-At each turn of the game (examples shown with the center cell in focus):
+At each turn of the game (examples shown with the __center cell__ in focus):
 
-* Any populated cell with fewer than two neighbors becomes empty.
+* __Any populated cell with fewer than two neighbors becomes empty.__
 
 _Before:_
 ![Rule 1 before image](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/1-before.png)
 _After:_
 ![Rule 1 before image](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/1-after.png)
-* Any populated cell with two or three neighbors stays populated.
+* __Any populated cell with two or three neighbors stays populated.__
 
 _No Change:_
 ![Rule 2 no change image](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/2-nochange.png)
-* Any populated cell with more than three neighbors becomes empty.
+* __Any populated cell with more than three neighbors becomes empty.__
 
 _Before:_
 ![Rule 3 before image](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/3-before.png)
 _After:_
 ![Rule 3 after image](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/3-after.png)
-* Any empty cell with exactly three or six neighbors becomes populated.
+* __Any empty cell with exactly three or six neighbors becomes populated.__
 
 _Before:_
 ![Rule 4 before image](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/4-before.png)
