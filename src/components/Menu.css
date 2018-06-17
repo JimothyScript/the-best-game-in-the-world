@@ -34,6 +34,11 @@
 .menu-btns button.reset {
   background-color: crimson;
 }
+.menu-btns button.compare {
+  background-color: #353535;
+  color: snow;
+}
+
 .menu-btns button.lock {
   background-color: darkgray;
 }

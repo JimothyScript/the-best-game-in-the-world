@@ -12,11 +12,12 @@ class App extends Component {
       grid: [this.initializeGame()],
       turnNumber: 0,
       start: true,
-      pause: false
+      pause: false,
+      compare: false
     }
 
     this.size = { rowLen: 50, colLen: 50 }
-    this.time = 80
+    this.time = 200
   }
   generateNum() {
     return Math.ceil(Math.random() * 4);
@@ -28,8 +29,9 @@ class App extends Component {
     const initialGrid = [];
 
     // Lowest usually in the range of high 500 (23%) and
-    // maxRandomNum won't allow more than 750 (30%) to be populated.
-    let maxRandomNum = Math.floor((rowLen * colLen) / 3.33);
+    // maxRandomNum won't allow more than 750 (27%) to be populated.
+    let maxRandomNum = Math.floor((rowLen * colLen) / 3.69);
+    // console.log(maxRandomNum);
     let populate;
 
     for (let row = 0; row < rowLen; row++) {
@@ -79,7 +81,10 @@ class App extends Component {
 
         this.gameLoop();
         // Will call on gameLoop with current state after toggling pause
-        this.setState({ pause: !this.state.pause });
+        this.setState({
+          pause: !this.state.pause,
+          compare: false
+        });
 
         break;
       case 'RESET':
@@ -90,12 +95,20 @@ class App extends Component {
           grid: [newGrid],
           turnNumber: 0,
           start: true,
-          pause: false
+          pause: false,
+          compare: false
         });
 
         break;
-      case 'PREVIOUS':
-        console.log('test');
+      case 'COMPARE':
+        // Will toggle between previous and current grid state
+        if (this.state.start || this.state.pause) return;
+        console.log('*COMPARE*'); // Only accessible when pause is clicked
+
+        this.setState({
+          compare: !this.state.compare
+        });
+
         break;
       default:
         console.log('Something went wrong!');
@@ -124,7 +137,6 @@ class App extends Component {
       });
 
     }, this.time);
-
   }
   brain(row, col) {
     const arr = this.state.grid[this.state.grid.length - 1];
@@ -150,7 +162,6 @@ class App extends Component {
       return (neighborCount > 1 && neighborCount < 4) ? 1 : null;
     else
       return (neighborCount !== 0 && neighborCount % 3 === 0) ? 1 : null;
-
   }
   render() {
     const latestTurn = this.state.grid.length - 1;
@@ -160,12 +171,21 @@ class App extends Component {
         <div className="menu-container">
           <Menu
             handleClick={(e) => this.handleClick(e)}
-            turnNumber={this.state.turnNumber}
+            turnNumber={
+              (this.state.compare)
+              ? this.state.turnNumber - 1
+              : this.state.turnNumber
+            }
             start={this.state.start}
-            pause={this.state.pause} />
+            pause={this.state.pause}
+            compare={this.state.compare} />
         </div>
         <div className="board-container">
-          <Board grid={this.state.grid[latestTurn]} />
+          <Board grid={
+              (this.state.compare)
+              ? this.state.grid[latestTurn - 1]
+              : this.state.grid[latestTurn]
+            } />
         </div>
       </div>
     );
