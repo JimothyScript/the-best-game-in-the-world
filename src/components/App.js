@@ -16,7 +16,7 @@ class App extends Component {
     }
 
     this.size = { rowLen: 50, colLen: 50 }
-    this.time = 500
+    this.time = 80
   }
   componentWillUnmount() {
     clearInterval(this.interval); // Might not need this
@@ -108,7 +108,6 @@ class App extends Component {
     const { rowLen, colLen } = this.size;
 
     this.interval = setInterval(() => {
-      const latestTurn = this.state.grid.length - 1;
       const newGrid = []; // The new evaluated grid
 
       for (let row = 0; row < rowLen; row++) {
@@ -116,9 +115,8 @@ class App extends Component {
 
         // this.state.grid[latestTurn][row].forEach((el, i) => {...}); // Maybe this instead?
         for (let col = 0; col < colLen; col++) {
-          const cell = this.state.grid[latestTurn][row][col];
-          // Send each cell into a this.brain that checks neighbors
-          cellArr.push(this.brain(cell, row, col));
+          // Send row and col into a this.brain() that checks the neighbors
+          cellArr.push(this.brain(row, col));
         }
         newGrid.push(cellArr); // push evaluated cells to newGrid
       }
@@ -131,15 +129,16 @@ class App extends Component {
     }, this.time);
 
   }
-  brain(cell, row, col) {
+  brain(row, col) {
+    const arr = this.state.grid[this.state.grid.length - 1];
     let neighborCount = 0;
-    const arr = this.state.grid[this.state.grid.length - 1]
+    let currentCell;
 
     for (let i = -1; i < 2; i++) {
       for (let j = -1; j < 2; j++) {
         if (arr[row + i] && arr[col + j]) {
-          if (i === 0 && j === 0) {
-            // Rewrite to get rid of the else statement
+          if (row + i === row && col + j === col) {
+            currentCell = arr[row + i][col + j];
           } else {
             // console.log(`arr[${row + i}][${col + j}] = ${arr[row + i][col + j]}`);
             if (arr[row + i][col + j]) {
@@ -150,8 +149,8 @@ class App extends Component {
       }
     }
 
-    if (cell) {
-      // populated cell conditionals
+    // populated cell conditionals
+    if (currentCell) {
       if (neighborCount < 2) {
         return null;
       } else if (neighborCount <= 3) {
