@@ -94,14 +94,15 @@ class App extends Component {
         });
 
         break;
+      case 'PREVIOUS':
+        console.log('test');
+        break;
       default:
         console.log('Something went wrong!');
     }
   }
   gameLoop() {
     // * Continue indefinitely until PAUSE(clearInterval), RESUME(gameLoop), or RESET(clearInterval/setState()) intervenes
-    // * Update this.state.grid with evaluated grid => grid: [...this.state.grid, newGrid]
-    // * Update this.state.turn by incremented value => turnNumber: this.state.turnNumber + 1
     const { rowLen, colLen } = this.size;
 
     this.interval = setInterval(() => {
@@ -111,7 +112,7 @@ class App extends Component {
         const cellArr = []; // Fill with evaluated cells
         // this.state.grid[latestTurn][row].forEach((el, i) => {...}); // Maybe this instead?
         for (let col = 0; col < colLen; col++) {
-          // Send row and col into a this.brain() that checks the neighbors
+          // Send row and col into this.brain() that checks neighbors
           cellArr.push(this.brain(row, col));
         }
         newGrid.push(cellArr); // push evaluated cells to newGrid
@@ -137,31 +138,19 @@ class App extends Component {
             currentCell = arr[row + i][col + j];
           } else {
             // console.log(`arr[${row + i}][${col + j}] = ${arr[row + i][col + j]}`);
-            if (arr[row + i][col + j]) {
-              neighborCount++;
-            }
+            if (arr[row + i][col + j]) neighborCount++;
           }
         }
       }
     }
 
-    // populated cell conditionals
-    if (currentCell) {
-      if (neighborCount < 2) {
-        return null;
-      } else if (neighborCount <= 3) {
-        return 1;
-      } else if (neighborCount > 3) {
-        return null;
-      }
-    } else {
-      // empty cell conditionals
-      if (neighborCount !== 0 && neighborCount % 3 === 0) {
-        return 1;
-      } else {
-        return null;
-      }
-    }
+    // if: Populated cell conditional is between 2 to 3 is true, everything else is null.
+    // else: Empty cell evenly divisible by 3 is true, everything else is null.
+    if (currentCell)
+      return (neighborCount > 1 && neighborCount < 4) ? 1 : null;
+    else
+      return (neighborCount !== 0 && neighborCount % 3 === 0) ? 1 : null;
+
   }
   render() {
     const latestTurn = this.state.grid.length - 1;
