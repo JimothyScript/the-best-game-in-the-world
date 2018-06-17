@@ -18,9 +18,6 @@ class App extends Component {
     this.size = { rowLen: 50, colLen: 50 }
     this.time = 80
   }
-  componentWillUnmount() {
-    clearInterval(this.interval); // Might not need this
-  }
   generateNum() {
     return Math.ceil(Math.random() * 4);
   }
@@ -112,7 +109,6 @@ class App extends Component {
 
       for (let row = 0; row < rowLen; row++) {
         const cellArr = []; // Fill with evaluated cells
-
         // this.state.grid[latestTurn][row].forEach((el, i) => {...}); // Maybe this instead?
         for (let col = 0; col < colLen; col++) {
           // Send row and col into a this.brain() that checks the neighbors
