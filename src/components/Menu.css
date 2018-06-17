@@ -15,7 +15,7 @@
 }
 
 .menu-btns button:hover {
-  color: #353535;
+  color: #252525;
   box-shadow: none;
 }
 .menu-btns button:focus {
@@ -26,7 +26,7 @@
   background-color: green;
 }
 .menu-btns button.pause {
-  background-color: cornflowerblue;
+  background-color: orange;
 }
 .menu-btns button.resume {
   background-color: #009688;
@@ -35,8 +35,7 @@
   background-color: crimson;
 }
 .menu-btns button.compare {
-  background-color: #353535;
-  color: snow;
+  background-color: cornflowerblue;
 }
 
 .menu-btns button.lock {

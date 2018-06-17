@@ -45,10 +45,11 @@ npm start
 _Notes on button behavior:_
 
 Once the __START__ button is clicked it will remain locked until the
-__RESET__ button is clicked. Initially, the __PAUSE__ and __RESUME__ button
+__RESET__ button is clicked. Initially, the __PAUSE__, __RESUME__, and __COMPARE__ button
 are locked but when the __START__ button is clicked, you
-are able to toggle between __PAUSE__ and __RESUME__. The __RESET__
-button can be clicked at any point of the game to stop and restore the initial game state.
+are able to toggle between __PAUSE__ and __RESUME__. The __COMPARE__ button is only accessible
+when the game is paused. The __RESET__ button can be clicked at any point of the game to stop
+and restore the initial game state.
 
 _Main Algorithm for the Game Rules:_
 

@@ -103,11 +103,9 @@ class App extends Component {
       case 'COMPARE':
         // Will toggle between previous and current grid state
         if (this.state.start || this.state.pause) return;
-        console.log('*COMPARE*'); // Only accessible when pause is clicked
+        // console.log('*COMPARE*'); // Only accessible when pause is clicked
 
-        this.setState({
-          compare: !this.state.compare
-        });
+        this.setState({ compare: !this.state.compare });
 
         break;
       default:
