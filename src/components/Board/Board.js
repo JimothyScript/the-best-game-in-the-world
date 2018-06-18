@@ -1,4 +1,6 @@
 import React from 'react';
+// Components
+import Cell from './Cell';
 import './Board.css';
 
 const Board = ({grid}) => {
@@ -6,11 +8,7 @@ const Board = ({grid}) => {
     <div className="board-box">{
       grid.map((row, i) => {
         return <div key={i} className="cell-row">{
-          row.map((column, j) => {
-            return <div key={j} className="cell-column">
-              {column && <img className="netscape-navigator" src="images/netscape.ico" alt="netscape navigator logo"/>}
-            </div>
-          })
+          <Cell row={row} />
         }</div>
       })
     }</div>

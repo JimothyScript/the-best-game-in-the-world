@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // Components
-import Menu from './Menu';
-import Board from './Board';
+import Menu from './Menu/Menu';
+import Board from './Board/Board';
 import './App.css';
 
 class App extends Component {
@@ -31,7 +31,6 @@ class App extends Component {
     // Lowest usually in the range of high 500 (23%) and
     // maxRandomNum won't allow more than 677 (27%) to be populated.
     let maxRandomNum = Math.floor((rowLen * colLen) / 3.69);
-    // console.log(maxRandomNum);
     let populate;
 
     for (let row = 0; row < rowLen; row++) {
@@ -39,7 +38,7 @@ class App extends Component {
       for (let col = 0; col < colLen; col++) {
         populate = this.generateNum();
         if (populate === 1 && maxRandomNum > 0) {
-          // console.log('populated'); // To see how many populated
+          // console.log('cells populated'); // Uncomment to quickly check
           cellArr.push(populate);
           maxRandomNum--;
         } else {
@@ -71,7 +70,8 @@ class App extends Component {
         if (this.state.start || !this.state.pause) return;
         // console.log('*PAUSE*'); // Pass only when RESUME was clicked
 
-        clearInterval(this.intervalLoop); // Does nothing to current state except toggle pause
+        clearInterval(this.intervalLoop);
+        // Does nothing to current state except toggle pause
         this.setState({ pause: !this.state.pause });
 
         break;
@@ -113,17 +113,18 @@ class App extends Component {
     }
   }
   gameLoop() {
-    // * Continue indefinitely until PAUSE(clearInterval), RESUME(gameLoop), or RESET(clearInterval/setState()) intervenes
     const { rowLen, colLen } = this.size;
 
+    // * Continue indefinitely until PAUSE(clearInterval), RESUME(gameLoop), or RESET(clearInterval/setState()) intervenes
     this.intervalLoop = setInterval(() => {
       const newGrid = []; // The new evaluated grid
 
+      // Maybe .forEach() instead?
       for (let row = 0; row < rowLen; row++) {
-        const cellArr = []; // Fill with evaluated cells
-        // this.state.grid[latestTurn][row].forEach((el, i) => {...}); // Maybe this instead?
+        const cellArr = [];
+
         for (let col = 0; col < colLen; col++) {
-          // Send row and col into this.brain() that checks neighbors
+          // this.brain() checks neighbors and determines 1 or null
           cellArr.push(this.brain(row, col));
         }
         newGrid.push(cellArr); // push evaluated cells to newGrid
