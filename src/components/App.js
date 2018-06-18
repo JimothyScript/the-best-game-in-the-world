@@ -51,44 +51,45 @@ class App extends Component {
     return initialGrid;
   }
   handleClick(e) {
+    const { start, pause, compare } = this.state;
     const buttonClicked = e.target.innerText;
 
     switch(buttonClicked) {
       case 'START':
         // Runs once and remains locked until RESET is clicked
-        if (this.state.start) {
+        if (start) {
           this.gameLoop();
 
           this.setState({
-            start: !this.state.start,
-            pause: !this.state.pause
+            start: !start,
+            pause: !pause
           });
         }
 
         break;
       case 'PAUSE':
-        if (this.state.start || !this.state.pause) return;
+        if (start || !pause) return;
         // console.log('*PAUSE*'); // Pass only when RESUME was clicked
 
         clearInterval(this.intervalLoop);
         // Does nothing to current state except toggle pause
-        this.setState({ pause: !this.state.pause });
+        this.setState({ pause: !pause });
 
         break;
       case 'RESUME':
-        if (this.state.start || this.state.pause) return;
+        if (start || pause) return;
         // console.log('*RESUME*'); // Pass only when PAUSE was clicked
 
         this.gameLoop();
         // Will call on gameLoop with current state after toggling pause
         this.setState({
-          pause: !this.state.pause,
+          pause: !pause,
           compare: false
         });
 
         break;
       case 'RESET':
-        if (!this.state.start) clearInterval(this.intervalLoop); // Only after START was clicked
+        if (!start) clearInterval(this.intervalLoop); // Only after START was clicked
         const newGrid = this.initializeGame();
 
         this.setState({
@@ -102,10 +103,9 @@ class App extends Component {
         break;
       case 'COMPARE':
         // Will toggle between previous and current grid state
-        if (this.state.start || this.state.pause) return;
-        // console.log('*COMPARE*'); // Only accessible when pause is clicked
+        if (start || pause) return;
 
-        this.setState({ compare: !this.state.compare });
+        this.setState({ compare: !compare });
 
         break;
       default:
@@ -163,12 +163,11 @@ class App extends Component {
       return (neighborCount !== 0 && neighborCount % 3 === 0) ? 1 : null;
   }
   render() {
-    const currentGrid = this.state.grid.length - 1;
-    const turnNum = this.state.turnNumber;
-    const compareBool = this.state.compare;
+    const { grid, turnNumber, start, pause, compare } = this.state;
+    const currentGrid = grid.length - 1;
     // Selects previous grid if compare is true:
-    const num = compareBool ? turnNum - 1 : turnNum;
-    const latestTurn = compareBool ? currentGrid - 1 : currentGrid;
+    const num = compare ? turnNumber - 1 : turnNumber;
+    const latestTurn = compare ? currentGrid - 1 : currentGrid;
 
     return (
       <div className="App">
@@ -176,12 +175,12 @@ class App extends Component {
           <Menu
             handleClick={(e) => this.handleClick(e)}
             turnNumber={num}
-            start={this.state.start}
-            pause={this.state.pause}
-            compare={compareBool} />
+            start={start}
+            pause={pause}
+            compare={compare} />
         </div>
         <div className="board-container">
-          <Board grid={this.state.grid[latestTurn]} />
+          <Board grid={grid[latestTurn]} />
         </div>
       </div>
     );

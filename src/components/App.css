@@ -8,11 +8,11 @@
   display: inline-block;
   background-color: snow;
   align-items: center;
-  border-right: 1px solid lightsteelblue;
+  border-right: 1px solid #B0C4DE;
 }
 
 .board-container {
   height: 900px;
-  background-color: lightgrey;
+  background-color: #D3D3D3;
   align-items: center;
 }
