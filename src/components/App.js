@@ -141,19 +141,19 @@ class App extends Component {
     }, this.turnSpeed);
   }
   brain(row, col) {
-    const arr = this.state.grid[this.state.grid.length - 1];
+    const grid = this.state.grid[this.state.grid.length - 1];
     let neighborCount = 0;
     let currentCell;
 
     for (let i = -1; i < 2; i++) {
 
       for (let j = -1; j < 2; j++) {
-        if (arr[row + i] && arr[col + j]) {
+        if (grid[row + i] && grid[col + j]) {
           if (row + i === row && col + j === col) {
-            currentCell = arr[row + i][col + j];
+            currentCell = grid[row + i][col + j];
           } else {
-            // console.log(`arr[${row + i}][${col + j}] = ${arr[row + i][col + j]}`);
-            if (arr[row + i][col + j]) neighborCount++;
+            // console.log(`grid[${row + i}][${col + j}] = ${grid[row + i][col + j]}`);
+            if (grid[row + i][col + j]) neighborCount++;
           }
         }
       }
