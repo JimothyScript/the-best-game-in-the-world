@@ -42,13 +42,13 @@ npm start
 
 ## Then click START in the menu bar to watch the game evolve before your very eyes!
 
-_Added Feature: COMPARE_
+* _Added Feature: COMPARE_
 
 The __COMPARE__ button toggles between the previous and current grid state. This was
 made to easily compare between the two states to see if the rules are kept and consistent
 at any point of the game.
 
-_Notes on button behavior:_
+* _Notes on button behavior:_
 
 Once the __START__ button is clicked it will remain locked until the
 __RESET__ button is clicked. Initially, the __PAUSE__, __RESUME__, and __COMPARE__ button
@@ -57,6 +57,6 @@ are able to toggle between __PAUSE__ and __RESUME__. The __COMPARE__ button is o
 when the game is paused. The __RESET__ button can be clicked at any point of the game to stop
 and restore the initial game state.
 
-_Main Algorithm for the Game Rules:_
+* _Main Algorithm for the Game Rules:_
 
 [Repl.it link](https://repl.it/@jamesscript7/brainForGameLoop)
