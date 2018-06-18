@@ -17,7 +17,7 @@ class App extends Component {
     }
 
     this.size = { rowLen: 50, colLen: 50 }
-    this.time = 200
+    this.time = 80
   }
   generateNum() {
     return Math.ceil(Math.random() * 4);
@@ -69,7 +69,7 @@ class App extends Component {
         break;
       case 'PAUSE':
         if (this.state.start || !this.state.pause) return;
-        console.log('*PAUSE*'); // Pass only when RESUME was clicked
+        // console.log('*PAUSE*'); // Pass only when RESUME was clicked
 
         clearInterval(this.interval); // Does nothing to current state except toggle pause
         this.setState({ pause: !this.state.pause });
@@ -77,7 +77,7 @@ class App extends Component {
         break;
       case 'RESUME':
         if (this.state.start || this.state.pause) return;
-        console.log('*RESUME*'); // Pass only when PAUSE was clicked
+        // console.log('*RESUME*'); // Pass only when PAUSE was clicked
 
         this.gameLoop();
         // Will call on gameLoop with current state after toggling pause

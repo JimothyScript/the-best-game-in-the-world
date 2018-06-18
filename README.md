@@ -42,6 +42,12 @@ npm start
 
 ## Then click START in the menu bar to watch the game evolve before your very eyes!
 
+_Added Feature: COMPARE_
+
+The __COMPARE__ button toggles between the previous and current grid state. This was
+made to easily compare between the two states to see if the rules are kept and consistent
+at any point of the game.
+
 _Notes on button behavior:_
 
 Once the __START__ button is clicked it will remain locked until the
