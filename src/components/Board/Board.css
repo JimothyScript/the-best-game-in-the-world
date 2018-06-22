@@ -6,11 +6,11 @@
 .cell-column {
   width: 18px;
   height: 18px;
-  background-color: snow;
-  border: 1px solid #B0C4DE;
+  background-color: #FFFFFF;
+  border: 1px solid #D3D3D3;
 }
 
 .netscape-navigator {
   width: 16px;
-  background-color: #B0C4DE;
+  background-color: #48C1F0;
 }

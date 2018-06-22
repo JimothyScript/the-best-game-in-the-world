@@ -6,13 +6,14 @@
 
 .menu-container {
   display: inline-block;
-  background-color: snow;
+  margin-right: 15px;
+  padding: 8px;
   align-items: center;
-  border-right: 1px solid #B0C4DE;
+  border: 1px solid #48C1F0;
+  border-radius: 20px;
 }
 
 .board-container {
   height: 900px;
-  background-color: #D3D3D3;
   align-items: center;
 }

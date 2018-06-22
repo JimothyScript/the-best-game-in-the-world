@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-html {
-  background-color: #252525;
-}
-
 body {
   margin: 0;
   padding: 20px;

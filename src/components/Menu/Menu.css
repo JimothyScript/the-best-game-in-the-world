@@ -1,17 +1,19 @@
 .menu-box {
   text-align: center;
+  color: #303030;
 }
 
 .menu-btns button {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: bold;
+  width: 80%;
   margin-bottom: 30px;
   padding: 16px;
-  width: 80%;
-  color: snow;
+  color: #FFFAFA;
+  background-color: #FFFAFA;
   border: 2px solid;
   border-radius: 40px;
-  background-color: #FFFAFA;
+  word-wrap: break-word;
 }
 
 .menu-btns button:focus {
