@@ -3,41 +3,97 @@
 }
 
 .menu-btns button {
-  font-size: 1.1em;
+  font-size: 1.3em;
   font-weight: bold;
   margin-bottom: 30px;
   padding: 16px;
   width: 80%;
   color: snow;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 1px 1px #808080;
+  border: 2px solid;
+  border-radius: 40px;
+  background-color: #FFFAFA;
 }
 
-.menu-btns button:hover {
-  color: #252525;
-  box-shadow: none;
-}
 .menu-btns button:focus {
   outline: none;
 }
 
+/* START */
 .menu-btns button.start {
-  background-color: #008000;
+  color: #95cc5d;
+  border-color: #95cc5d;
 }
+.menu-btns button.start:hover {
+  color: #FFFAFA;
+  background-color: #95cc5d;
+  border-color: #95cc5d;
+}
+/* START */
+
+/* PAUSE */
 .menu-btns button.pause {
+  color: #FFA500;
+  border-color: #FFA500;
+}
+.menu-btns button.pause:hover {
+  color: #FFFAFA;
   background-color: #FFA500;
+  border: 2px solid #FFA500;
 }
+/* PAUSE */
+
+/* RESUME */
 .menu-btns button.resume {
-  background-color: #009688;
+  color: #3C4F6F;
+  border-color: #3C4F6F;
 }
+.menu-btns button.resume:hover {
+  color: #FFFAFA;;
+  background-color: #3C4F6F;
+  border-color: #3C4F6F;
+}
+/* RESUME */
+
+/* RESET */
 .menu-btns button.reset {
-  background-color: #DC143C;
+  color: #DC143C;
+  border-color: #DC143C;
 }
+.menu-btns button.reset:hover {
+  color: #FFFAFA;;
+  background-color: #DC143C;
+  border-color: #DC143C;
+}
+/* RESET */
+
+/* COMPARE */
 .menu-btns button.compare {
-  background-color: #6495ED;
+  color: #48C1F0;
+  border-color: #48C1F0;
+}
+.menu-btns button.compare:hover {
+  color: #FFFAFA;;
+  background-color: #48C1F0;
+  border-color: #48C1F0;
+}
+/* COMPARE */
+
+/* LOCKED BUTTONS */
+button.start.lock,
+button.pause.lock,
+button.resume.lock,
+button.compare.lock {
+  color: #808080;
+  background-color: #D3D3D3;
+  border: 2px solid #C0C0C0;
 }
 
-.menu-btns button.lock {
-  background-color: #A9A9A9;
+button.start.lock:hover,
+button.pause.lock:hover,
+button.resume.lock:hover,
+button.compare.lock:hover {
+  color: #FFFAFA;
+  background-color: #D3D3D3;
+  border: 2px solid #C0C0C0;
 }
+/* LOCKED BUTTONS */
