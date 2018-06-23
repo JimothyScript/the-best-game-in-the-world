@@ -10,7 +10,7 @@
   margin-bottom: 30px;
   padding: 16px;
   color: #FFFAFA;
-  background-color: #FFFAFA;
+  background-color: #FFFFFF;
   border: 2px solid;
   border-radius: 40px;
   word-wrap: break-word;
@@ -26,7 +26,7 @@
   border-color: #95cc5d;
 }
 .menu-btns button.start:hover {
-  color: #FFFAFA;
+  color: #FFFFFF;
   background-color: #95cc5d;
   border-color: #95cc5d;
 }
@@ -38,7 +38,7 @@
   border-color: #FFA500;
 }
 .menu-btns button.pause:hover {
-  color: #FFFAFA;
+  color: #FFFFFF;
   background-color: #FFA500;
   border: 2px solid #FFA500;
 }
@@ -50,7 +50,7 @@
   border-color: #3C4F6F;
 }
 .menu-btns button.resume:hover {
-  color: #FFFAFA;;
+  color: #FFFFFF;
   background-color: #3C4F6F;
   border-color: #3C4F6F;
 }
@@ -62,7 +62,7 @@
   border-color: #DC143C;
 }
 .menu-btns button.reset:hover {
-  color: #FFFAFA;;
+  color: #FFFFFF;
   background-color: #DC143C;
   border-color: #DC143C;
 }
@@ -74,7 +74,7 @@
   border-color: #48C1F0;
 }
 .menu-btns button.compare:hover {
-  color: #FFFAFA;;
+  color: #FFFFFF;
   background-color: #48C1F0;
   border-color: #48C1F0;
 }
@@ -89,12 +89,11 @@ button.compare.lock {
   background-color: #D3D3D3;
   border: 2px solid #C0C0C0;
 }
-
 button.start.lock:hover,
 button.pause.lock:hover,
 button.resume.lock:hover,
 button.compare.lock:hover {
-  color: #FFFAFA;
+  color: #FFFFFF;
   background-color: #D3D3D3;
   border: 2px solid #C0C0C0;
 }
