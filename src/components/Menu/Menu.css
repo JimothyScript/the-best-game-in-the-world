@@ -79,18 +79,18 @@
 /* COMPARE */
 
 /* LOCKED BUTTONS */
-button.start.lock,
-button.pause.lock,
-button.resume.lock,
-button.compare.lock {
+.menu-btns button.start.lock,
+.menu-btns button.pause.lock,
+.menu-btns button.resume.lock,
+.menu-btns button.compare.lock {
   color: #808080;
   background-color: #D3D3D3;
   border: 2px solid #C0C0C0;
 }
-button.start.lock:hover,
-button.pause.lock:hover,
-button.resume.lock:hover,
-button.compare.lock:hover {
+.menu-btns button.start.lock:hover,
+.menu-btns button.pause.lock:hover,
+.menu-btns button.resume.lock:hover,
+.menu-btns button.compare.lock:hover {
   color: #FFFFFF;
   background-color: #D3D3D3;
   border: 2px solid #C0C0C0;
