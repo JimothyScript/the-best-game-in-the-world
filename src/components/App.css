@@ -3,7 +3,6 @@
   grid-template-columns: 20% 900px;
   justify-content: center;
 }
-
 .menu-container {
   display: inline-block;
   margin-right: 15px;
@@ -12,7 +11,6 @@
   border: 1px solid #48C1F0;
   border-radius: 20px;
 }
-
 .board-container {
   height: 900px;
   align-items: center;

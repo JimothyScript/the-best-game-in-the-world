@@ -2,7 +2,6 @@
   text-align: center;
   color: #303030;
 }
-
 .menu-btns button {
   font-size: 1.2em;
   font-weight: bold;
@@ -15,7 +14,6 @@
   border-radius: 40px;
   word-wrap: break-word;
 }
-
 .menu-btns button:focus {
   outline: none;
 }
