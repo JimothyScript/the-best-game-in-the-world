@@ -20,61 +20,61 @@
 
 /* START */
 .menu-btns button.start {
-  color: #95cc5d;
-  border-color: #95cc5d;
+  color: #FFFFFF;
+  background-color: #95CC5D;
+  border-color: #95CC5D;
 }
 .menu-btns button.start:hover {
-  color: #FFFFFF;
-  background-color: #95cc5d;
-  border-color: #95cc5d;
+  color: #95CC5D;
+  background-color: #FFFFFF;
 }
 /* START */
 
 /* PAUSE */
 .menu-btns button.pause {
-  color: #FFA500;
-  border-color: #FFA500;
-}
-.menu-btns button.pause:hover {
   color: #FFFFFF;
   background-color: #FFA500;
   border: 2px solid #FFA500;
+}
+.menu-btns button.pause:hover {
+  color: #FFA500;
+  background-color: #FFFFFF;
 }
 /* PAUSE */
 
 /* RESUME */
 .menu-btns button.resume {
-  color: #3C4F6F;
-  border-color: #3C4F6F;
-}
-.menu-btns button.resume:hover {
   color: #FFFFFF;
   background-color: #3C4F6F;
   border-color: #3C4F6F;
+}
+.menu-btns button.resume:hover {
+  color: #3C4F6F;
+  background-color: #FFFFFF;
 }
 /* RESUME */
 
 /* RESET */
 .menu-btns button.reset {
-  color: #DC143C;
-  border-color: #DC143C;
-}
-.menu-btns button.reset:hover {
   color: #FFFFFF;
   background-color: #DC143C;
   border-color: #DC143C;
+}
+.menu-btns button.reset:hover {
+  color: #DC143C;
+  background-color: #FFFFFF;
 }
 /* RESET */
 
 /* COMPARE */
 .menu-btns button.compare {
-  color: #48C1F0;
-  border-color: #48C1F0;
-}
-.menu-btns button.compare:hover {
   color: #FFFFFF;
   background-color: #48C1F0;
   border-color: #48C1F0;
+}
+.menu-btns button.compare:hover {
+  color: #48C1F0;
+  background-color: #FFFFFF;
 }
 /* COMPARE */
 
@@ -85,7 +85,7 @@
 .menu-btns button.compare.lock {
   color: #808080;
   background-color: #D3D3D3;
-  border: 2px solid #C0C0C0;
+  border: 2px solid #D3D3D3;
 }
 .menu-btns button.start.lock:hover,
 .menu-btns button.pause.lock:hover,
@@ -93,6 +93,5 @@
 .menu-btns button.compare.lock:hover {
   color: #FFFFFF;
   background-color: #D3D3D3;
-  border: 2px solid #C0C0C0;
 }
 /* LOCKED BUTTONS */
