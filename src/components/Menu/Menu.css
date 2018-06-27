@@ -18,7 +18,7 @@
   outline: none;
 }
 
-/* IMAGES */
+/* EXAMPLES SECTION */
 .tips {
   display: flex;
   flex-direction: row;
@@ -32,10 +32,13 @@
   border-radius: 8px;
   color: #3C4F6F;
 }
+.tips div:hover {
+  background-color: #F0F8FF;
+}
 .tips img:hover {
   transform: scale(1.05);
 }
-/* IMAGES */
+/* EXAMPLES SECTION */
 
 /* START */
 .menu-btns button.start {

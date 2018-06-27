@@ -57,6 +57,7 @@ class App extends Component {
     if (!start) return;
     const attr = e.target.getAttribute('alt');
     const templateGrid = grid[0];
+    let count = 0;
 
     switch(attr) {
       case 'Replicator':
@@ -72,21 +73,36 @@ class App extends Component {
         templateGrid[24][19] = 1;
         templateGrid[24][20] = 1;
         templateGrid[24][21] = 1;
-
-        this.setState({
-          grid: [templateGrid],
-          cellCount: 12
-        });
+        count = 12;
         break;
       case 'Spaceship':
-        console.log(attr);
+        templateGrid[13][2] = 1;
+        templateGrid[13][3] = 1;
+        templateGrid[13][4] = 1;
+        templateGrid[13][5] = 1;
+        templateGrid[14][1] = 1;
+        templateGrid[14][5] = 1;
+        templateGrid[15][5] = 1;
+        templateGrid[16][1] = 1;
+        templateGrid[16][4] = 1;
+        count = 9;
         break;
       case 'Glider':
-        console.log(attr);
+        templateGrid[0][3] = 1;
+        templateGrid[1][1] = 1;
+        templateGrid[1][3] = 1;
+        templateGrid[2][2] = 1;
+        templateGrid[2][3] = 1;
+        count = 5;
         break;
       default:
         break;
     }
+
+    this.setState({
+      grid: [templateGrid],
+      cellCount: count
+    });
   }
   populateCell(e) {
     const { grid, start, cellCount } = this.state;
@@ -96,7 +112,7 @@ class App extends Component {
     const col = e.target.getAttribute('data-cell');
     const populateGrid = grid[0];
     let cellNum = cellCount;
-    console.log(row, col);
+    // console.log(row, col); // Uncomment to see selected row and col
 
     if (!populateGrid[row][col]) {
       populateGrid[row][col] = 1;
@@ -120,7 +136,7 @@ class App extends Component {
       case 'RANDOMIZE':
         if (!start) return;
         const randomGrid = this.initializeGame(this.size, true);
-        console.log('*RANDOM*');
+        // console.log('*RANDOM*');
 
         this.setState({
           grid: [randomGrid],
@@ -167,7 +183,7 @@ class App extends Component {
         if (cellCount <= 0) return;
         clearInterval(this.intervalLoop);
         const newGrid = this.initializeGame(this.size, false);
-        console.log('*RESET*');
+        // console.log('*RESET*');
 
         this.setState({
           grid: [newGrid],
