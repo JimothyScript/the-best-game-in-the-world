@@ -283,7 +283,7 @@ class App extends Component {
             populateCell={(row, col) => this.populateCell(row, col)} />
             <footer>
               <small>&copy;2018 James Kim</small>
-              <span><a href="https://github.com/JamesScript7/the-best-game-in-the-world">Link to GitHub!</a></span>
+              <span><a href="https://github.com/JamesScript7/the-best-game-in-the-world" target="_blank" rel="noopener">Link to GitHub!</a></span>
             </footer>
         </div>
       </div>
