@@ -80,6 +80,6 @@ __RESET__: Accessible after the simulation has started to clear the board of any
 
 __COMPARE__: Accessible only after the simulation has been paused and will display the previous turn in order to check the integrity of the rule set.
 
-## _Main Algorithm for the Game Rules:_
+## _Main Algorithm for the Simulation Rules:_
 
 [Repl.it link](https://repl.it/@jamesscript7/brainForGameLoop)
