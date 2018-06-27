@@ -2,19 +2,17 @@
 
 This simulation is a cellular automaton devised by John Conway in 1970. This particular variation is _HighLife_, where a dead cell comes to life if it is surrounded by 6 living cells. It's best known for the "replicator" pattern.
 
+__SKILLS:__ React.
+
+[Link to the simulation!](https://netscape-evolve.surge.sh/)
+
 _Starting Pattern:_
 
 ![Starting pattern for replicator](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/replicator.png)
 
-_Pattern evolution\*:_
+_Pattern evolution:_ [Gif provided by the wiki page](http://conwaylife.com/w/index.php?title=Replicator)
 
 ![Replicator pattern](http://conwaylife.com/w/images/1/19/Replicator_animation.gif)
-
-\*[Gif provided by the wiki page](http://conwaylife.com/w/index.php?title=Replicator)
-
-__Skills:__ React.
-
-[Link to the website!](https://netscape-evolve.surge.sh/)
 
 _Create your own patterns:_
 
@@ -64,19 +62,19 @@ npm i
 npm start
 ```
 
-### Notes on button behavior:
+### _Notes on button behavior:_
 
 __RANDOMIZE__: Randomly populates the board according to the rule set.
 
-__START__: Accessible when there's at least a single cell on the board or after __RANDOMIZE__ is clicked. This button will remain locked until the __RESET__ button is clicked.
+__START__: Accessible when there's at least a single cell on the board or after _RANDOMIZE_ is clicked. This button will remain locked until the _RESET_ button is clicked.
 
-__PAUSE__: Accessible when the game is running to freeze the simulation. You are able to toggle between __PAUSE__ and __RESUME__.
+__PAUSE__: Accessible when the simulation is running to freeze it. You are able to toggle between _PAUSE_ and _RESUME_.
 
-__RESUME__: Accessible after the game has been paused. Will continue the simulation from where the game left off.
+__RESUME__: Accessible after the simulation has been paused. It will continue from where the game left off.
 
 __RESET__: Accessible after the simulation has started to clear the board of any populated cells.
 
-__COMPARE__: Accessible only after the game has been paused and will display the previous turn in order to check the integrity of the rule set.
+__COMPARE__: Accessible only after the simulation has been paused and will display the previous turn in order to check the integrity of the rule set.
 
 ### Main Algorithm for the Game Rules:
 
