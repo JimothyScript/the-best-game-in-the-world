@@ -74,11 +74,11 @@ __START__: Accessible when there's at least a single cell on the board or after 
 
 __PAUSE__: Accessible when the simulation is running to freeze it. You are able to toggle between _PAUSE_ and _RESUME_.
 
-__RESUME__: Accessible after the simulation has been paused. It will continue from where the game left off.
+__RESUME__: Accessible after the simulation has been paused. It will continue from where it left off.
 
-__RESET__: Accessible after the simulation has started to clear the board of any populated cells.
+__RESET__: Accessible after the simulation has started. This will clear the board of any populated cells.
 
-__COMPARE__: Accessible only after the simulation has been paused and will display the previous turn in order to check the integrity of the rule set.
+__COMPARE__: Accessible only after the simulation has been paused and the board will display the previous turn in order to check the pattern and integrity of the rule set.
 
 ## _Main Algorithm for the Simulation Rule Set:_
 
