@@ -1,6 +1,6 @@
 # Conway's Game of Life
 
-This simulation is a cellular automaton devised by John Conway in 1970. This particular variation is _HighLife_, where a dead cell comes to life if it is surrounded by 6 living cells. It's best known for the "replicator" pattern.
+This simulation is a cellular automaton devised by John Conway in 1970. This particular variation is, _HighLife_, where a dead cell comes to life if it is surrounded by 6 living cells. It's best known for the "replicator" pattern which is available to use in the template.
 
 __SKILLS:__ React, CSS Grid Layout, and Flexbox.
 
@@ -32,7 +32,7 @@ _Pause the simulation to view the pattern and compare it with the previous turn:
 
 ## Rule Set
 
-At each turn of the game (_Examples are shown with the CENTER cell in focus_):
+At each turn of the simulation (_Examples are shown with the CENTER cell in focus_):
 
 * __Any populated cell with fewer than two neighbors becomes empty.__
 
@@ -68,7 +68,7 @@ npm start
 
 ## _Notes on button behavior:_
 
-__RANDOMIZE__: Randomly populates the board according to the rule set.
+__RANDOMIZE__: Randomly populates 23-27% of the board.
 
 __START__: Accessible when there's at least a single cell on the board or after _RANDOMIZE_ is clicked. This button will remain locked until the _RESET_ button is clicked.
 
@@ -80,6 +80,6 @@ __RESET__: Accessible after the simulation has started to clear the board of any
 
 __COMPARE__: Accessible only after the simulation has been paused and will display the previous turn in order to check the integrity of the rule set.
 
-## _Main Algorithm for the Simulation Rules:_
+## _Main Algorithm for the Simulation Rule Set:_
 
 [Repl.it link](https://repl.it/@jamesscript7/brainForGameLoop)
