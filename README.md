@@ -18,6 +18,10 @@ _Create your own patterns:_
 
 ![Image of menu and board with hello world!](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/main-1.png)
 
+_Or use provided templates:_
+
+![Image of menu and board with templates](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/main-4.png)
+
 _Create a randomized pattern that populates 23-27% of the board:_
 
 ![Image of menu and randomized board](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/main-2.png)
