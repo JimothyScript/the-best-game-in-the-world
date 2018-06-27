@@ -6,7 +6,7 @@ __SKILLS:__ React.
 
 [Link to the simulation!](https://netscape-evolve.surge.sh/)
 
-_Starting Pattern:_
+_Starting Pattern for the Replicator:_
 
 ![Starting pattern for replicator](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/replicator.png)
 
@@ -26,9 +26,9 @@ _Pause the simulation to view pattern and compare with previous turn:_
 
 ![Image of menu and board in paused state](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/main-3.png)
 
-## Rules
+## Rule Set
 
-At each turn of the game (examples shown with the __center cell__ in focus):
+At each turn of the game (_Examples are shown with the CENTER cell in focus_):
 
 * __Any populated cell with fewer than two neighbors becomes empty.__
 
@@ -55,7 +55,7 @@ _Before:_
 _After:_
 ![Rule 4 before image](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/4-after.png)
 
-## To Start the Game:
+## To Start the Simulation:
 
 ```
 npm i
@@ -76,6 +76,6 @@ __RESET__: Accessible after the simulation has started to clear the board of any
 
 __COMPARE__: Accessible only after the simulation has been paused and will display the previous turn in order to check the integrity of the rule set.
 
-### Main Algorithm for the Game Rules:
+### _Main Algorithm for the Game Rules:_
 
 [Repl.it link](https://repl.it/@jamesscript7/brainForGameLoop)

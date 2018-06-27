@@ -14,7 +14,8 @@ class App extends Component {
       start: true,
       pause: false,
       compare: false,
-      cells: false
+      cells: false,
+      cellCount: 0
     }
 
     this.size = { rowLen: 50, colLen: 50 }
@@ -52,22 +53,30 @@ class App extends Component {
     return initialGrid;
   }
   populateCell(e) {
-    const { grid, start } = this.state;
+    const { grid, start, cellCount } = this.state;
     if (!start) return;
-    
+
     const row = e.target.getAttribute('data-row');
     const col = e.target.getAttribute('data-cell');
     const populateGrid = grid[0];
+    let cellNum = cellCount;
 
-    (!populateGrid[row][col]) ? populateGrid[row][col] = 1 : populateGrid[row][col] = null;
+    if (!populateGrid[row][col]) {
+      populateGrid[row][col] = 1;
+      cellNum++;
+    } else {
+      populateGrid[row][col] = null;
+      cellNum--;
+    }
 
     this.setState({
       grid: [populateGrid],
-      cells: true
+      cells: true,
+      cellCount: cellNum
     });
   }
   handleClick(e) {
-    const { start, pause, compare, cells } = this.state;
+    const { start, pause, compare, cellCount } = this.state;
     const buttonClicked = e.target.innerText;
 
     switch(buttonClicked) {
@@ -78,12 +87,13 @@ class App extends Component {
 
         this.setState({
           grid: [randomGrid],
-          cells: true
+          cells: true,
+          cellCount: 625
         });
 
         break;
       case 'START':
-        if (!cells) return;
+        if (cellCount <= 0) return;
         // Runs once and remains locked until RESET is clicked
         if (start) {
           this.gameLoop();
@@ -128,7 +138,8 @@ class App extends Component {
           start: true,
           pause: false,
           compare: false,
-          cells: false
+          cells: false,
+          cellCount: 0
         });
 
         break;
@@ -195,7 +206,7 @@ class App extends Component {
       return (neighborCount !== 0 && neighborCount % 3 === 0) ? 1 : null;
   }
   render() {
-    const { grid, turnNumber, start, pause, compare, cells } = this.state;
+    const { grid, turnNumber, start, pause, compare, cellCount } = this.state;
     const currentGrid = grid.length - 1;
     // Selects previous grid if compare is true:
     const num = compare ? turnNumber - 1 : turnNumber;
@@ -210,7 +221,7 @@ class App extends Component {
             start={start}
             pause={pause}
             compare={compare}
-            cells={cells} />
+            cellCount={cellCount} />
         </div>
         <div className="board-container">
           <Board
