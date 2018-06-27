@@ -15,6 +15,7 @@ const Menu = ({handleClick, turnNumber, start, pause, compare}) => {
     options[0] = 'randomize lock';
     if (pause) {
       options[3] = 'resume lock';
+      options[5] = 'compare lock';
     } else {
       options[2] = 'pause lock';
       options[3] = 'resume';

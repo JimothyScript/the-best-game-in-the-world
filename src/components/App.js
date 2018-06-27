@@ -98,8 +98,11 @@ class App extends Component {
 
         break;
       case 'RESET':
-        if (!start) clearInterval(this.intervalLoop); // Only after START was clicked
+        if (start) return;
+        clearInterval(this.intervalLoop);
         const newGrid = this.initializeGame(this.size, false);
+
+        console.log('*RESET*');
 
         this.setState({
           grid: [newGrid],
