@@ -22,7 +22,7 @@ _Create a randomized pattern that populates 23-27% of the board:_
 
 ![Image of menu and randomized board](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/main-2.png)
 
-_Pause the simulation to view pattern and compare with previous turn:_
+_Pause the simulation to view the pattern and compare it with the previous turn:_
 
 ![Image of menu and board in paused state](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/main-3.png)
 
@@ -55,14 +55,14 @@ _Before:_
 _After:_
 ![Rule 4 before image](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/4-after.png)
 
-## To Start the Simulation:
+## _To Start the Simulation:_
 
 ```
 npm i
 npm start
 ```
 
-### _Notes on button behavior:_
+## _Notes on button behavior:_
 
 __RANDOMIZE__: Randomly populates the board according to the rule set.
 
@@ -76,6 +76,6 @@ __RESET__: Accessible after the simulation has started to clear the board of any
 
 __COMPARE__: Accessible only after the simulation has been paused and will display the previous turn in order to check the integrity of the rule set.
 
-### _Main Algorithm for the Game Rules:_
+## _Main Algorithm for the Game Rules:_
 
 [Repl.it link](https://repl.it/@jamesscript7/brainForGameLoop)

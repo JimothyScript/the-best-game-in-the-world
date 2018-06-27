@@ -18,6 +18,21 @@
   outline: none;
 }
 
+/* IMAGES */
+.tips {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.tips div {
+  padding: 0 4px;
+  margin: 3px;
+  border: 1px solid #D3D3D3;
+  border-radius: 8px;
+}
+/* IMAGES */
+
 /* START */
 .menu-btns button.start {
   color: #FFFFFF;

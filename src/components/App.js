@@ -55,7 +55,7 @@ class App extends Component {
   populateCell(e) {
     const { grid, start, cellCount } = this.state;
     if (!start) return;
-
+    
     const row = e.target.getAttribute('data-row');
     const col = e.target.getAttribute('data-cell');
     const populateGrid = grid[0];

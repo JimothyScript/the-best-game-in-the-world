@@ -39,6 +39,20 @@ const Menu = ({handleClick, turnNumber, start, pause, compare, cellCount}) => {
           </button>
         })
       }</div>
+      <div className="tips">
+        <div>
+          <p>Replicator</p>
+          <img src="images/rules/replicator.png" alt="replicator"/>
+        </div>
+        <div>
+          <p>Spaceship</p>
+          <img src="images/rules/spaceship.png" alt="spaceship"/>
+        </div>
+        <div>
+          <p>Glider</p>
+          <img src="images/rules/glider.png" alt="glider"/>
+        </div>
+      </div>
     </div>
   );
 }
