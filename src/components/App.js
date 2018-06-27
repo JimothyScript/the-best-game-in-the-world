@@ -26,7 +26,6 @@ class App extends Component {
     // Populate approximately 25%, which is around 625, out of 2,500 cells
     const { rowLen, colLen } = size;
     const initialGrid = [];
-    console.log(size, random);
 
     // Lowest usually in the range of high 500 (23%) and
     // maxRandomNum won't allow more than 677 (27%) to be populated.

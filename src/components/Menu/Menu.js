@@ -2,12 +2,14 @@ import React from 'react';
 import './Menu.css';
 
 const Menu = ({handleClick, turnNumber, start, pause, compare}) => {
-  const options = ['randomize', 'start', 'pause', 'resume', 'reset', 'compare lock'];
+  const options = ['randomize', 'start', 'pause', 'resume', 'reset', 'compare'];
 
   // 'pause' and 'resume' will be locked initially
   if (start) {
     options[2] = 'pause lock';
     options[3] = 'resume lock';
+    options[4] = 'reset lock';
+    options[5] = 'compare lock';
   } else {
     options[1] = 'start lock';
     options[0] = 'randomize lock';
