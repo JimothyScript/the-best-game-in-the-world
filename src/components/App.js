@@ -59,6 +59,7 @@ class App extends Component {
     const templateGrid = grid[0];
     let count = cellCount;
 
+    // Should probably move this out somewhere else...
     switch(attr) {
       case 'Replicator':
         templateGrid[20][21] = 1;
@@ -281,10 +282,10 @@ class App extends Component {
           <Board
             grid={grid[latestTurn]}
             populateCell={(row, col) => this.populateCell(row, col)} />
-            <footer>
-              <small>&copy;2018 James Kim</small>
-              <span><a href="https://github.com/JamesScript7/the-best-game-in-the-world" target="_blank" rel="noopener">Link to GitHub!</a></span>
-            </footer>
+          <footer>
+            <small>&copy;2018 James Kim</small>
+            <span><a href="https://github.com/JamesScript7/the-best-game-in-the-world" target="_blank" rel="noopener">Link to GitHub!</a></span>
+          </footer>
         </div>
       </div>
     );
