@@ -281,6 +281,10 @@ class App extends Component {
           <Board
             grid={grid[latestTurn]}
             populateCell={(row, col) => this.populateCell(row, col)} />
+            <footer>
+              <small>&copy;2018 James Kim</small>
+              <span><a href="https://github.com/JamesScript7/the-best-game-in-the-world">Link to GitHub!</a></span>
+            </footer>
         </div>
       </div>
     );

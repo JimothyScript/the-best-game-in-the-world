@@ -15,3 +15,13 @@
   height: 900px;
   align-items: center;
 }
+footer {
+  text-align: right;
+}
+footer span a {
+  font-weight: bold;
+  display: inline-block;
+  text-decoration: none;
+  color: #48C1F0;
+  padding: 4px 0 0 20px;
+}
