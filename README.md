@@ -2,7 +2,7 @@
 
 This simulation is a cellular automaton devised by John Conway in 1970. This particular variation is _HighLife_, where a dead cell comes to life if it is surrounded by 6 living cells. It's best known for the "replicator" pattern.
 
-__SKILLS:__ React.
+__SKILLS:__ React, CSS Grid Layout, and Flexbox.
 
 [Link to the simulation!](https://netscape-evolve.surge.sh/)
 
