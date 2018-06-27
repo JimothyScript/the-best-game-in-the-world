@@ -52,10 +52,19 @@ class App extends Component {
     return initialGrid;
   }
   populateCell(e) {
+    const { grid, start } = this.state;
+    if (!start) return;
+    
     const row = e.target.getAttribute('data-row');
     const col = e.target.getAttribute('data-cell');
+    const populateGrid = grid[0];
 
-    console.log(row, col);
+    (!populateGrid[row][col]) ? populateGrid[row][col] = 1 : populateGrid[row][col] = null;
+
+    this.setState({
+      grid: [populateGrid],
+      cells: true
+    });
   }
   handleClick(e) {
     const { start, pause, compare, cells } = this.state;
