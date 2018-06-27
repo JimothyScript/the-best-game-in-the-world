@@ -2,7 +2,7 @@ import React from 'react';
 import './Menu.css';
 
 const Menu = ({handleClick, turnNumber, start, pause, compare}) => {
-  const options = ['start', 'pause', 'resume', 'reset', 'compare lock'];
+  const options = ['start', 'pause', 'resume', 'reset', 'compare lock', 'random'];
 
   // 'pause' and 'resume' will be locked initially
   if (start) {
