@@ -3,6 +3,7 @@ import './Menu.css';
 
 const Menu = ({handleClick, turnNumber, start, pause, compare, cellCount}) => {
   const options = ['randomize', 'start', 'pause', 'resume', 'reset', 'compare'];
+  const examples = ['Replicator', 'Spaceship', 'Glider'];
 
   // 'pause' and 'resume' will be locked initially
   if (start) {
@@ -39,20 +40,16 @@ const Menu = ({handleClick, turnNumber, start, pause, compare, cellCount}) => {
           </button>
         })
       }</div>
-      <div className="tips">
-        <div>
-          <p>Replicator</p>
-          <img src="images/rules/replicator.png" alt="replicator"/>
-        </div>
-        <div>
-          <p>Spaceship</p>
-          <img src="images/rules/spaceship.png" alt="spaceship"/>
-        </div>
-        <div>
-          <p>Glider</p>
-          <img src="images/rules/glider.png" alt="glider"/>
-        </div>
-      </div>
+      <div className="tips">{
+        examples.map((el, i) => {
+          return(
+            <div key={i}>
+              <p>{el}</p>
+              <img src={`images/rules/${el.toLowerCase()}.png`} alt={el}/>
+            </div>
+          )
+        })
+      }</div>
     </div>
   );
 }
