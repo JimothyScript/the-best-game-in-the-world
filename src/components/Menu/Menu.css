@@ -78,24 +78,24 @@
 }
 /* COMPARE */
 
-/* RANDOM */
-.menu-btns button.random {
+/* randomize */
+.menu-btns button.randomize {
     color: #FFFFFF;
     background-color: #696969;
     border-color: #696969;
 }
-.menu-btns button.random:hover {
+.menu-btns button.randomize:hover {
   color: #696969;
   background-color: #FFFFFF;
 }
-/* RANDOM */
+/* randomize */
 
 /* LOCKED BUTTONS */
 .menu-btns button.start.lock,
 .menu-btns button.pause.lock,
 .menu-btns button.resume.lock,
 .menu-btns button.compare.lock,
-.menu-btns button.random.lock {
+.menu-btns button.randomize.lock {
   color: #808080;
   background-color: #D3D3D3;
   border: 2px solid #D3D3D3;
@@ -104,7 +104,7 @@
 .menu-btns button.pause.lock:hover,
 .menu-btns button.resume.lock:hover,
 .menu-btns button.compare.lock:hover,
-.menu-btns button.random.lock:hover {
+.menu-btns button.randomize.lock:hover {
   color: #FFFFFF;
   background-color: #D3D3D3;
 }
