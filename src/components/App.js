@@ -35,10 +35,9 @@ class App extends Component {
 
     for (let row = 0; row < rowLen; row++) {
       const cellArr = [];
-
       for (let col = 0; col < colLen; col++) {
           populate = this.generateNum();
-          if (random && populate === 1 && maxRandomNum > 0) {
+          if (random && (populate === 1 && maxRandomNum > 0)) {
             // console.log('cells populated'); // Uncomment to quickly check
             cellArr.push(populate);
             maxRandomNum--;
@@ -66,6 +65,7 @@ class App extends Component {
           grid: [randomGrid],
           cells: true
         });
+
         break;
       case 'START':
         if (!cells) return;
@@ -138,7 +138,6 @@ class App extends Component {
       // Maybe .forEach() instead?
       for (let row = 0; row < rowLen; row++) {
         const cellArr = [];
-
         for (let col = 0; col < colLen; col++) {
           // this.brain() checks neighbors and determines 1 or null
           cellArr.push(this.brain(row, col));
@@ -160,7 +159,6 @@ class App extends Component {
     let currentCell;
 
     for (let i = -1; i < 2; i++) {
-
       for (let j = -1; j < 2; j++) {
         if (grid[row + i] && grid[col + j]) {
           if (row + i === row && col + j === col) {
