@@ -53,11 +53,11 @@ class App extends Component {
     return initialGrid;
   }
   generateTemplate(e) {
-    const { grid, start } = this.state
+    const { grid, start, cellCount } = this.state
     if (!start) return;
     const attr = e.target.getAttribute('alt');
     const templateGrid = grid[0];
-    let count = 0;
+    let count = cellCount;
 
     switch(attr) {
       case 'Replicator':
@@ -73,7 +73,7 @@ class App extends Component {
         templateGrid[24][19] = 1;
         templateGrid[24][20] = 1;
         templateGrid[24][21] = 1;
-        count = 12;
+        count += 12;
         break;
       case 'Spaceship':
         templateGrid[13][2] = 1;
@@ -85,7 +85,7 @@ class App extends Component {
         templateGrid[15][5] = 1;
         templateGrid[16][1] = 1;
         templateGrid[16][4] = 1;
-        count = 9;
+        count += 9;
         break;
       case 'Glider':
         templateGrid[0][3] = 1;
@@ -93,7 +93,7 @@ class App extends Component {
         templateGrid[1][3] = 1;
         templateGrid[2][2] = 1;
         templateGrid[2][3] = 1;
-        count = 5;
+        count += 5;
         break;
       default:
         break;
