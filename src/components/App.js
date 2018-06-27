@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      grid: [this.initializeGame()],
+      grid: [this.initializeGame({rowLen: 50, colLen: 50}, false)],
       turnNumber: 0,
       start: true,
       pause: false,
@@ -22,11 +22,11 @@ class App extends Component {
   generateNum() {
     return Math.ceil(Math.random() * 4);
   }
-  initializeGame() {
+  initializeGame(size, random) {
     // Populate approximately 25%, which is around 625, out of 2,500 cells
-    const rowLen = 50;
-    const colLen = 50;
+    const { rowLen, colLen } = size;
     const initialGrid = [];
+    console.log(size, random);
 
     // Lowest usually in the range of high 500 (23%) and
     // maxRandomNum won't allow more than 677 (27%) to be populated.
@@ -37,14 +37,14 @@ class App extends Component {
       const cellArr = [];
 
       for (let col = 0; col < colLen; col++) {
-        populate = this.generateNum();
-        if (populate === 1 && maxRandomNum > 0) {
-          // console.log('cells populated'); // Uncomment to quickly check
-          cellArr.push(populate);
-          maxRandomNum--;
-        } else {
-          cellArr.push(null);
-        }
+          populate = this.generateNum();
+          if (random && populate === 1 && maxRandomNum > 0) {
+            // console.log('cells populated'); // Uncomment to quickly check
+            cellArr.push(populate);
+            maxRandomNum--;
+          } else {
+            cellArr.push(null);
+          }
       }
 
       initialGrid.push(cellArr);
@@ -57,6 +57,14 @@ class App extends Component {
     const buttonClicked = e.target.innerText;
 
     switch(buttonClicked) {
+      case 'RANDOMIZE':
+        console.log('random clicked!');
+        const randomGrid = this.initializeGame(this.size, true);
+
+        this.setState({
+          grid: [randomGrid]
+        });
+        break;
       case 'START':
         // Runs once and remains locked until RESET is clicked
         if (start) {
@@ -92,7 +100,7 @@ class App extends Component {
         break;
       case 'RESET':
         if (!start) clearInterval(this.intervalLoop); // Only after START was clicked
-        const newGrid = this.initializeGame();
+        const newGrid = this.initializeGame(this.size, false);
 
         this.setState({
           grid: [newGrid],
