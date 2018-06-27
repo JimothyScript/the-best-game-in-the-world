@@ -81,11 +81,11 @@
 /* randomize */
 .menu-btns button.randomize {
     color: #FFFFFF;
-    background-color: #696969;
-    border-color: #696969;
+    background-color: #FF7F50;
+    border-color: #FF7F50;
 }
 .menu-btns button.randomize:hover {
-  color: #696969;
+  color: #FF7F50;
   background-color: #FFFFFF;
 }
 /* randomize */

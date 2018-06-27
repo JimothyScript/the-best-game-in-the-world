@@ -13,7 +13,8 @@ class App extends Component {
       turnNumber: 0,
       start: true,
       pause: false,
-      compare: false
+      compare: false,
+      cells: false
     }
 
     this.size = { rowLen: 50, colLen: 50 }
@@ -52,19 +53,22 @@ class App extends Component {
     return initialGrid;
   }
   handleClick(e) {
-    const { start, pause, compare } = this.state;
+    const { start, pause, compare, cells } = this.state;
     const buttonClicked = e.target.innerText;
 
     switch(buttonClicked) {
       case 'RANDOMIZE':
-        console.log('random clicked!');
+        if (!start) return;
         const randomGrid = this.initializeGame(this.size, true);
+        console.log('*RANDOM*');
 
         this.setState({
-          grid: [randomGrid]
+          grid: [randomGrid],
+          cells: true
         });
         break;
       case 'START':
+        if (!cells) return;
         // Runs once and remains locked until RESET is clicked
         if (start) {
           this.gameLoop();
@@ -101,7 +105,6 @@ class App extends Component {
         if (start) return;
         clearInterval(this.intervalLoop);
         const newGrid = this.initializeGame(this.size, false);
-
         console.log('*RESET*');
 
         this.setState({
@@ -109,7 +112,8 @@ class App extends Component {
           turnNumber: 0,
           start: true,
           pause: false,
-          compare: false
+          compare: false,
+          cells: false
         });
 
         break;
@@ -178,7 +182,7 @@ class App extends Component {
       return (neighborCount !== 0 && neighborCount % 3 === 0) ? 1 : null;
   }
   render() {
-    const { grid, turnNumber, start, pause, compare } = this.state;
+    const { grid, turnNumber, start, pause, compare, cells } = this.state;
     const currentGrid = grid.length - 1;
     // Selects previous grid if compare is true:
     const num = compare ? turnNumber - 1 : turnNumber;
@@ -192,7 +196,8 @@ class App extends Component {
             turnNumber={num}
             start={start}
             pause={pause}
-            compare={compare} />
+            compare={compare}
+            cells={cells} />
         </div>
         <div className="board-container">
           <Board grid={grid[latestTurn]} />
