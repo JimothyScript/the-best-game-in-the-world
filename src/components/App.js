@@ -53,11 +53,30 @@ class App extends Component {
     return initialGrid;
   }
   generateTemplate(e) {
+    const { grid, start } = this.state
+    if (!start) return;
     const attr = e.target.getAttribute('alt');
-    
+    const templateGrid = grid[0];
+
     switch(attr) {
       case 'Replicator':
-        console.log(attr);
+        templateGrid[20][21] = 1;
+        templateGrid[20][22] = 1;
+        templateGrid[20][23] = 1;
+        templateGrid[21][20] = 1;
+        templateGrid[21][23] = 1;
+        templateGrid[22][19] = 1;
+        templateGrid[22][23] = 1;
+        templateGrid[23][19] = 1;
+        templateGrid[23][22] = 1;
+        templateGrid[24][19] = 1;
+        templateGrid[24][20] = 1;
+        templateGrid[24][21] = 1;
+
+        this.setState({
+          grid: [templateGrid],
+          cellCount: 12
+        });
         break;
       case 'Spaceship':
         console.log(attr);
@@ -77,6 +96,7 @@ class App extends Component {
     const col = e.target.getAttribute('data-cell');
     const populateGrid = grid[0];
     let cellNum = cellCount;
+    console.log(row, col);
 
     if (!populateGrid[row][col]) {
       populateGrid[row][col] = 1;
@@ -144,7 +164,7 @@ class App extends Component {
 
         break;
       case 'RESET':
-        if (start) return;
+        if (cellCount <= 0) return;
         clearInterval(this.intervalLoop);
         const newGrid = this.initializeGame(this.size, false);
         console.log('*RESET*');

@@ -12,7 +12,6 @@ const Menu = ({handleClick, generateTemplate, turnNumber, start, pause, compare,
     }
     options[2] = 'pause lock';
     options[3] = 'resume lock';
-    options[4] = 'reset lock';
     options[5] = 'compare lock';
   } else {
     options[1] = 'start lock';
