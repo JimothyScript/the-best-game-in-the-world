@@ -32,6 +32,9 @@
   border-radius: 8px;
   color: #3C4F6F;
 }
+.tips img:hover {
+  transform: scale(1.05);
+}
 /* IMAGES */
 
 /* START */
@@ -94,7 +97,7 @@
 }
 /* COMPARE */
 
-/* randomize */
+/* RANDOMIZE */
 .menu-btns button.randomize {
     color: #FFFFFF;
     background-color: #FF7F50;
@@ -104,7 +107,7 @@
   color: #FF7F50;
   background-color: #FFFFFF;
 }
-/* randomize */
+/* RANDOMIZE */
 
 /* LOCKED BUTTONS */
 .menu-btns button.randomize.lock,

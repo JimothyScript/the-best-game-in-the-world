@@ -1,7 +1,7 @@
 import React from 'react';
 import './Menu.css';
 
-const Menu = ({handleClick, turnNumber, start, pause, compare, cellCount}) => {
+const Menu = ({handleClick, generateTemplate, turnNumber, start, pause, compare, cellCount}) => {
   const options = ['randomize', 'start', 'pause', 'resume', 'reset', 'compare'];
   const examples = ['Replicator', 'Spaceship', 'Glider'];
 
@@ -43,7 +43,7 @@ const Menu = ({handleClick, turnNumber, start, pause, compare, cellCount}) => {
       <div className="tips">{
         examples.map((el, i) => {
           return(
-            <div key={i}>
+            <div key={i} onClick={(e) => generateTemplate(e)}>
               <p>{el}</p>
               <img src={`images/rules/${el.toLowerCase()}.png`} alt={el}/>
             </div>

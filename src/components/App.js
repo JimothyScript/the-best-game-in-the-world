@@ -52,10 +52,27 @@ class App extends Component {
 
     return initialGrid;
   }
+  generateTemplate(e) {
+    const attr = e.target.getAttribute('alt');
+    
+    switch(attr) {
+      case 'Replicator':
+        console.log(attr);
+        break;
+      case 'Spaceship':
+        console.log(attr);
+        break;
+      case 'Glider':
+        console.log(attr);
+        break;
+      default:
+        break;
+    }
+  }
   populateCell(e) {
     const { grid, start, cellCount } = this.state;
     if (!start) return;
-    
+
     const row = e.target.getAttribute('data-row');
     const col = e.target.getAttribute('data-cell');
     const populateGrid = grid[0];
@@ -217,6 +234,7 @@ class App extends Component {
         <div className="menu-container">
           <Menu
             handleClick={(e) => this.handleClick(e)}
+            generateTemplate={(e) => this.generateTemplate(e)}
             turnNumber={num}
             start={start}
             pause={pause}
