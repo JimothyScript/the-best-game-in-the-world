@@ -51,6 +51,12 @@ class App extends Component {
 
     return initialGrid;
   }
+  populateCell(e) {
+    const row = e.target.getAttribute('data-row');
+    const col = e.target.getAttribute('data-cell');
+
+    console.log(row, col);
+  }
   handleClick(e) {
     const { start, pause, compare, cells } = this.state;
     const buttonClicked = e.target.innerText;
@@ -198,7 +204,9 @@ class App extends Component {
             cells={cells} />
         </div>
         <div className="board-container">
-          <Board grid={grid[latestTurn]} />
+          <Board
+            grid={grid[latestTurn]}
+            populateCell={(row, col) => this.populateCell(row, col)} />
         </div>
       </div>
     );

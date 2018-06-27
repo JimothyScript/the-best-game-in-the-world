@@ -3,12 +3,12 @@ import React from 'react';
 import Cell from './Cell';
 import './Board.css';
 
-const Board = ({grid}) => {
+const Board = ({grid, populateCell}) => {
   return (
     <div className="board-box">{
       grid.map((row, i) => {
         return <div key={i} className="cell-row">{
-          <Cell row={row} />
+          <Cell row={row} r={i} populateCell={populateCell}/>
         }</div>
       })
     }</div>
