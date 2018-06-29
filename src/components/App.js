@@ -15,7 +15,8 @@ class App extends Component {
       pause: false,
       compare: false,
       cells: false,
-      cellCount: 0
+      cellCount: 0,
+      dragItem: null
     }
 
     this.size = { rowLen: 50, colLen: 50 }
@@ -260,6 +261,16 @@ class App extends Component {
     else
       return (neighborCount !== 0 && neighborCount % 3 === 0) ? 1 : null;
   }
+  onDragStart(e) {
+    const dragItem = e.target.getAttribute('alt');
+    this.setState({ dragItem });
+  }
+  onDragDrop(e) {
+    const row = e.target.getAttribute('data-row');
+    const cell = e.target.getAttribute('data-cell');
+    console.log(row, cell);
+    
+  }
   render() {
     const { grid, turnNumber, start, pause, compare, cellCount } = this.state;
     const currentGrid = grid.length - 1;
@@ -272,7 +283,9 @@ class App extends Component {
         <div className="board-container">
           <Board
             grid={grid[latestTurn]}
-            populateCell={(row, col) => this.populateCell(row, col)} />
+            populateCell={(row, col) => this.populateCell(row, col)}
+            onDragDrop={(e) => this.onDragDrop(e)}
+            />
           <footer>
             <span>
               <a href="https://github.com/JamesScript7/the-best-game-in-the-world" target="_blank" rel="noopener noreferrer">
@@ -286,6 +299,7 @@ class App extends Component {
           <Menu
             handleClick={(e) => this.handleClick(e)}
             generateTemplate={(e) => this.generateTemplate(e)}
+            onDragStart={(e) => this.onDragStart(e)}
             turnNumber={num}
             start={start}
             pause={pause}
