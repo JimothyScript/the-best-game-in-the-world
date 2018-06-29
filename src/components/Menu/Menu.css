@@ -123,13 +123,4 @@
   background-color: #D3D3D3;
   border: 2px solid #D3D3D3;
 }
-.menu-btns button.randomize.lock:hover,
-.menu-btns button.start.lock:hover,
-.menu-btns button.pause.lock:hover,
-.menu-btns button.resume.lock:hover,
-.menu-btns button.reset.lock:hover,
-.menu-btns button.compare.lock:hover {
-  color: #FFFFFF;
-  background-color: #D3D3D3;
-}
 /* LOCKED BUTTONS */
