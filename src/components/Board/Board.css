@@ -7,6 +7,9 @@
   height: 18px;
   border: 1px solid #D3D3D3;
 }
+.cell-column:hover {
+  background-color: #FFFF00;
+}
 .netscape-navigator {
   width: 100%;
 }

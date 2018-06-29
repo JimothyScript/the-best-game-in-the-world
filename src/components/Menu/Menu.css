@@ -103,11 +103,11 @@
 /* RANDOMIZE */
 .menu-btns button.randomize {
     color: #FFFFFF;
-    background-color: #FF7F50;
-    border-color: #FF7F50;
+    background-color: #383838;
+    border-color: #383838;
 }
 .menu-btns button.randomize:hover {
-  color: #FF7F50;
+  color: #383838;
   background-color: #FFFFFF;
 }
 /* RANDOMIZE */
