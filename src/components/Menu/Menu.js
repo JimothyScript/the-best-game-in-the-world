@@ -39,6 +39,7 @@ const Menu = ({handleClick, generateTemplate, onDragStart, turnNumber, start, pa
           </button>
         })
       }</div>
+      <h2>Templates</h2>
       <div className="tips">{
         examples.map((el, i) => {
           return(

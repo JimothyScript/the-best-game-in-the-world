@@ -21,6 +21,10 @@ class App extends Component {
 
     this.size = { rowLen: 50, colLen: 50 }
     this.turnSpeed = 80
+    // TEMPLATES
+    this.replicator = [[null,null,1,1,1],[null,1,null,null,1],[1,null,null,null,1],[1,1,1,null,null]],
+    this.spaceship = [[null,1,1,1,1],[1,null,null,null,1],[null,null,null,null,1],[1,null,null,1,null]],
+    this.glider = [[null,null,1],[1,null,1],[null,1,1]];
   }
   generateNum() {
     return Math.ceil(Math.random() * 4);
@@ -54,16 +58,16 @@ class App extends Component {
     return initialGrid;
   }
   generateTemplate(e, gridRow, gridCell) {
-    const { grid, start, cellCount } = this.state
+    const { grid, start, cellCount, dragItem } = this.state
     if (!start) return;
     const templateGrid = grid[0];
-    let attr, row, cell;
     let count = cellCount;
+    let attr, row, cell, arr;
 
     if (!e) {
       row = gridRow;
       cell = gridCell;
-      console.log(row, cell);
+      attr = dragItem;
     } else {
       attr = e.target.getAttribute('alt');
     }
@@ -71,42 +75,24 @@ class App extends Component {
     // Should probably move this out somewhere else...
     switch(attr) {
       case 'Replicator':
-        templateGrid[20][21] = 1;
-        templateGrid[20][22] = 1;
-        templateGrid[20][23] = 1;
-        templateGrid[21][20] = 1;
-        templateGrid[21][23] = 1;
-        templateGrid[22][19] = 1;
-        templateGrid[22][23] = 1;
-        templateGrid[23][19] = 1;
-        templateGrid[23][22] = 1;
-        templateGrid[24][19] = 1;
-        templateGrid[24][20] = 1;
-        templateGrid[24][21] = 1;
-        count += 12;
+        arr = this.replicator;
+        // count += 12;
         break;
       case 'Spaceship':
-        templateGrid[13][2] = 1;
-        templateGrid[13][3] = 1;
-        templateGrid[13][4] = 1;
-        templateGrid[13][5] = 1;
-        templateGrid[14][1] = 1;
-        templateGrid[14][5] = 1;
-        templateGrid[15][5] = 1;
-        templateGrid[16][1] = 1;
-        templateGrid[16][4] = 1;
-        count += 9;
+        arr = this.spaceship;
+        // count += 9;
         break;
       case 'Glider':
-        templateGrid[0][3] = 1;
-        templateGrid[1][1] = 1;
-        templateGrid[1][3] = 1;
-        templateGrid[2][2] = 1;
-        templateGrid[2][3] = 1;
-        count += 5;
+        arr = this.glider;
+        // count += 5;
         break;
       default:
         break;
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+      // count will be updated here:
+      console.log('test');
     }
 
     this.setState({
