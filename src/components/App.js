@@ -182,7 +182,7 @@ class App extends Component {
         break;
       case 'RESET':
         if (cellCount <= 0) return;
-        clearInterval(this.intervalLoop);
+        if (!start) clearInterval(this.intervalLoop);
         const newGrid = this.initializeGame(this.size, false);
         // console.log('*RESET*');
 
