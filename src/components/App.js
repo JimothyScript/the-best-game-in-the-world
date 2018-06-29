@@ -84,6 +84,7 @@ class App extends Component {
         arr = this.glider;
         break;
       default:
+        arr = [[null]];
         break;
     }
 
@@ -95,18 +96,21 @@ class App extends Component {
       if ((cell + arr[0].length) > (templateGrid.length - 1)) {
         cell -= (cell + arr[0].length) - (templateGrid.length);
       }
+    } else {
+      row = Math.floor((Math.random() * 100) % 45);
+      cell = Math.floor((Math.random() * 100) % 45);
+    }
 
-      for (let i = 0; i < arr.length; i++) {
-        let startCell = cell;
-        for (let j = 0; j < arr[i].length; j++) {
-          if (arr[i][j]) {
-            templateGrid[row][startCell] = 1;
-            count++;
-          }
-          startCell++;
+    for (let i = 0; i < arr.length; i++) {
+      let startCell = cell;
+      for (let j = 0; j < arr[i].length; j++) {
+        if (arr[i][j]) {
+          templateGrid[row][startCell] = 1;
+          count++;
         }
-        row++;
+        startCell++;
       }
+      row++;
     }
 
     this.setState({
