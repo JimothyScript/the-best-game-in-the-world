@@ -8,11 +8,7 @@ const Board = ({grid, populateCell, onDragDrop}) => {
     <div className="board-box">{
       grid.map((row, i) => {
         return <div key={i} className="cell-row">{
-          <Cell
-            row={row}
-            r={i}
-            populateCell={populateCell}
-            onDragDrop={onDragDrop} />
+            <Cell row={row} r={i} populateCell={populateCell} onDragDrop={onDragDrop} />
         }</div>
       })
     }</div>

@@ -22,8 +22,8 @@ class App extends Component {
     this.size = { rowLen: 50, colLen: 50 }
     this.turnSpeed = 80
     // TEMPLATES
-    this.replicator = [[null,null,1,1,1],[null,1,null,null,1],[1,null,null,null,1],[1,1,1,null,null]],
-    this.spaceship = [[null,1,1,1,1],[1,null,null,null,1],[null,null,null,null,1],[1,null,null,1,null]],
+    this.replicator = [[null,null,1,1,1],[null,1,null,null,1],[1,null,null,null,1],[1,null,null,1,null],[1,1,1,null,null]];
+    this.spaceship = [[null,1,1,1,1],[1,null,null,null,1],[null,null,null,null,1],[1,null,null,1,null]];
     this.glider = [[null,null,1],[1,null,1],[null,1,1]];
   }
   generateNum() {
@@ -65,8 +65,8 @@ class App extends Component {
     let attr, row, cell, arr;
 
     if (!e) {
-      row = gridRow;
-      cell = gridCell;
+      row = parseInt(gridRow, 10);
+      cell = parseInt(gridCell, 10);
       attr = dragItem;
     } else {
       attr = e.target.getAttribute('alt');
@@ -76,23 +76,37 @@ class App extends Component {
     switch(attr) {
       case 'Replicator':
         arr = this.replicator;
-        // count += 12;
         break;
       case 'Spaceship':
         arr = this.spaceship;
-        // count += 9;
         break;
       case 'Glider':
         arr = this.glider;
-        // count += 5;
         break;
       default:
         break;
     }
 
-    for (let i = 0; i < arr.length; i++) {
-      // count will be updated here:
-      console.log('test');
+    // row and cell adjuster for "edge" cases:
+    if (!e) {
+      if ((row + arr.length) > (templateGrid.length - 1)) {
+        row -= (row + arr.length) - (templateGrid.length);
+      }
+      if ((cell + arr[0].length) > (templateGrid.length - 1)) {
+        cell -= (cell + arr[0].length) - (templateGrid.length);
+      }
+
+      for (let i = 0; i < arr.length; i++) {
+        let startCell = cell;
+        for (let j = 0; j < arr[i].length; j++) {
+          if (arr[i][j]) {
+            templateGrid[row][startCell] = 1;
+            count++;
+          }
+          startCell++;
+        }
+        row++;
+      }
     }
 
     this.setState({
@@ -260,6 +274,7 @@ class App extends Component {
     this.setState({ dragItem });
   }
   onDragDrop(e) {
+    e.preventDefault(); // Needed in FireFox
     const row = e.target.getAttribute('data-row');
     const cell = e.target.getAttribute('data-cell');
     // console.log(row, cell);

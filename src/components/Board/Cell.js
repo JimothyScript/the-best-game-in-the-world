@@ -12,9 +12,10 @@ const Cell = ({row, r, populateCell, onDragDrop}) => {
         data-row={r}
         data-cell={j}
         onClick={(e) => populateCell(e)}
+        draggable="false"
         onDragOver={(e) => onDragEnterOver(e)}
         onDrop={(e) => onDragDrop(e, 'complete')}>
-        {column && <img className="netscape-navigator" src="images/netscape.ico" data-row={r} data-cell={j} alt="netscape navigator logo"/>}
+        {column && <img className="netscape-navigator" draggable="false" src="images/netscape.ico" data-row={r} data-cell={j} alt="netscape navigator logo"/>}
       </div>
     })
   );
