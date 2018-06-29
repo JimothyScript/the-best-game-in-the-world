@@ -1,11 +1,11 @@
 .App {
   display: grid;
-  grid-template-columns: 20% 900px;
+  grid-template-columns: 900px 20%;
   justify-content: center;
 }
 .menu-container {
   display: inline-block;
-  margin-right: 15px;
+  margin-left: 15px;
   padding: 8px;
   align-items: center;
   border: 1px solid #48C1F0;
@@ -16,12 +16,12 @@
   align-items: center;
 }
 footer {
-  text-align: right;
+  text-align: left;
 }
 footer span a {
   font-weight: bold;
   display: inline-block;
   text-decoration: none;
   color: #228B22;
-  padding: 4px 0 0 20px;
+  padding: 4px 20px 0 0;
 }

@@ -268,6 +268,15 @@ class App extends Component {
 
     return (
       <div className="App">
+        <div className="board-container">
+          <Board
+            grid={grid[latestTurn]}
+            populateCell={(row, col) => this.populateCell(row, col)} />
+          <footer>
+            <span><a href="https://github.com/JamesScript7/the-best-game-in-the-world" target="_blank" rel="noopener noreferrer">Link to GitHub!</a></span>
+            <small>&copy;2018 James Kim</small>
+          </footer>
+        </div>
         <div className="menu-container">
           <Menu
             handleClick={(e) => this.handleClick(e)}
@@ -277,15 +286,6 @@ class App extends Component {
             pause={pause}
             compare={compare}
             cellCount={cellCount} />
-        </div>
-        <div className="board-container">
-          <Board
-            grid={grid[latestTurn]}
-            populateCell={(row, col) => this.populateCell(row, col)} />
-          <footer>
-            <small>&copy;2018 James Kim</small>
-            <span><a href="https://github.com/JamesScript7/the-best-game-in-the-world" target="_blank" rel="noopener noreferrer">Link to GitHub!</a></span>
-          </footer>
         </div>
       </div>
     );
