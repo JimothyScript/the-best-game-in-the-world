@@ -53,12 +53,20 @@ class App extends Component {
 
     return initialGrid;
   }
-  generateTemplate(e) {
+  generateTemplate(e, gridRow, gridCell) {
     const { grid, start, cellCount } = this.state
     if (!start) return;
-    const attr = e.target.getAttribute('alt');
     const templateGrid = grid[0];
+    let attr, row, cell;
     let count = cellCount;
+
+    if (!e) {
+      row = gridRow;
+      cell = gridCell;
+      console.log(row, cell);
+    } else {
+      attr = e.target.getAttribute('alt');
+    }
 
     // Should probably move this out somewhere else...
     switch(attr) {
@@ -268,8 +276,8 @@ class App extends Component {
   onDragDrop(e) {
     const row = e.target.getAttribute('data-row');
     const cell = e.target.getAttribute('data-cell');
-    console.log(row, cell);
-    
+    // console.log(row, cell);
+    this.generateTemplate(null, row, cell);
   }
   render() {
     const { grid, turnNumber, start, pause, compare, cellCount } = this.state;
