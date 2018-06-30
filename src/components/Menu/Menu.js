@@ -40,7 +40,7 @@ const Menu = ({handleClick, generateTemplate, onDragStart, turnNumber, start, pa
         })
       }</div>
       <h2>Templates</h2>
-      <p>click to place randomly on the board or drag it! (grab it by the top left corner for best results)</p>
+      <p>Click to place randomly on the board or drag it! (grab it by the top left corner for best results)</p>
       <div className="tips">{
         examples.map((el, i) => {
           return(
