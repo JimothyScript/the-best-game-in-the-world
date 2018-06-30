@@ -1,7 +1,14 @@
 .App {
   display: grid;
-  grid-template-columns: 900px 20%;
+  grid-template-columns: 20% 900px 20%;
   justify-content: center;
+}
+.templates-container {
+  padding: 8px;
+}
+.board-container {
+  height: 900px;
+  align-items: center;
 }
 .menu-container {
   display: inline-block;
@@ -11,17 +18,17 @@
   border: 1px solid #48C1F0;
   border-radius: 20px;
 }
-.board-container {
-  height: 900px;
-  align-items: center;
-}
 footer {
+  display: flex;
+  padding: 4px 0;
   text-align: left;
+  grid-column: 3/4;
+  justify-content: space-between;
+  align-items: center;
 }
 footer span a {
   font-weight: bold;
   display: inline-block;
   text-decoration: none;
   color: #228B22;
-  padding: 4px 20px 0 0;
 }

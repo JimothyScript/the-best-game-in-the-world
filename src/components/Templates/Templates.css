@@ -1,0 +1,36 @@
+.menu-box h2,
+.menu-box p {
+  margin: 0 0 8px 0;
+}
+.templates-box {
+  text-align: center;
+  color: #303030;
+}
+
+/* EXAMPLES SECTION */
+.tips {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.tips p {
+  margin: 6px 0 4px 0;
+}
+.tips div {
+  width: 100px;
+  height: 120px;
+  margin: 3px;
+  border: 1px solid #D3D3D3;
+  border-radius: 8px;
+  color: #3C4F6F;
+  display: grid;
+  justify-content: center;
+}
+.tips div:hover {
+  background-color: #F0F8FF;
+}
+.tips img:hover {
+  transform: scale(1.05);
+}
+/* EXAMPLES SECTION */

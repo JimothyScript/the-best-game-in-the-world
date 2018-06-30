@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // Components
 import Menu from './Menu/Menu';
 import Board from './Board/Board';
+import Templates from './Templates/Templates';
 import './App.css';
 
 class App extends Component {
@@ -293,12 +294,16 @@ class App extends Component {
 
     return (
       <div className="App">
+        <div className="template-container">
+          <Templates
+            generateTemplate={(e) => this.generateTemplate(e)}
+            onDragStart={(e) => this.onDragStart(e)} />
+        </div>
         <div className="board-container">
           <Board
             grid={grid[latestTurn]}
             populateCell={(row, col) => this.populateCell(row, col)}
-            onDragDrop={(e) => this.onDragDrop(e)}
-            />
+            onDragDrop={(e) => this.onDragDrop(e)} />
           <footer>
             <span>
               <a href="https://github.com/JamesScript7/the-best-game-in-the-world" target="_blank" rel="noopener noreferrer">
@@ -311,8 +316,6 @@ class App extends Component {
         <div className="menu-container">
           <Menu
             handleClick={(e) => this.handleClick(e)}
-            generateTemplate={(e) => this.generateTemplate(e)}
-            onDragStart={(e) => this.onDragStart(e)}
             turnNumber={num}
             start={start}
             pause={pause}

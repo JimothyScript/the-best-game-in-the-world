@@ -1,9 +1,8 @@
 import React from 'react';
 import './Menu.css';
 
-const Menu = ({handleClick, generateTemplate, onDragStart, turnNumber, start, pause, compare, cellCount}) => {
+const Menu = ({handleClick, turnNumber, start, pause, compare, cellCount}) => {
   const options = ['randomize', 'start', 'pause', 'resume', 'reset', 'compare'];
-  const examples = ['Replicator', 'Spaceship', 'Glider'];
 
   // 'pause' and 'resume' will be locked initially
   if (start) {
@@ -37,22 +36,6 @@ const Menu = ({handleClick, generateTemplate, onDragStart, turnNumber, start, pa
             onClick={(e) => handleClick(e)}>
             {item.split(' ')[0].toUpperCase()}
           </button>
-        })
-      }</div>
-      <h2>Templates</h2>
-      <p>Click to place randomly on the board or drag it! (grab it by the top left corner for best results)</p>
-      <div className="tips">{
-        examples.map((el, i) => {
-          return(
-            <div key={i} onClick={(e) => generateTemplate(e)}>
-              <p>{el}</p>
-              <img
-                draggable
-                onDragStart={(e) => onDragStart(e)}
-                src={`images/rules/${el.toLowerCase()}.png`}
-                alt={el}/>
-            </div>
-          )
         })
       }</div>
     </div>
