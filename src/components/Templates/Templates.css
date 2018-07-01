@@ -10,9 +10,9 @@
 
 /* EXAMPLES SECTION */
 .tips {
+  padding: 15px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   flex-wrap: wrap;
 }
 .tips p {
@@ -27,6 +27,9 @@
   color: #3C4F6F;
   display: grid;
   justify-content: center;
+}
+.tips img {
+  margin: 0 auto;
 }
 .tips div:hover {
   background-color: #F0F8FF;

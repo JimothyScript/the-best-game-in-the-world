@@ -26,6 +26,10 @@ class App extends Component {
     this.replicator = [[null,null,1,1,1],[null,1,null,null,1],[1,null,null,null,1],[1,null,null,1,null],[1,1,1,null,null]];
     this.spaceship = [[null,1,1,1,1],[1,null,null,null,1],[null,null,null,null,1],[1,null,null,1,null]];
     this.glider = [[null,null,1],[1,null,1],[null,1,1]];
+    this.oscillator = [[1],[1],[1]];
+    this.beacon = [[null,null,1,1],[null,null,1,1],[1,1,null,null],[1,1,null,null]];
+    this.exploder = [[null,1,null],[1,1,1],[1,null,1],[null,1,null]];
+    this.combo = [[null,1,1,1,1],[1,null,null,null,1],[null,1,null,null,1],[1,1,null,1,null],[null,1,null,null,null]];
   }
   generateNum() {
     return Math.ceil(Math.random() * 4);
@@ -83,6 +87,18 @@ class App extends Component {
         break;
       case 'Glider':
         arr = this.glider;
+        break;
+      case 'Oscillator':
+        arr = this.oscillator;
+        break;
+      case 'Beacon':
+        arr = this.beacon;
+        break;
+      case 'Exploder':
+        arr = this.exploder;
+        break;
+      case 'Combo':
+        arr = this.combo;
         break;
       default:
         arr = [[null]];
