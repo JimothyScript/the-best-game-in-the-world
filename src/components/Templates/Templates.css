@@ -10,7 +10,7 @@
 
 /* EXAMPLES SECTION */
 .tips {
-  padding: 15px;
+  padding: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -19,8 +19,8 @@
   margin: 6px 0 4px 0;
 }
 .tips div {
-  width: 100px;
-  height: 120px;
+  width: 104px;
+  height: 130px;
   margin: 3px;
   border: 1px solid #D3D3D3;
   border-radius: 8px;
@@ -35,6 +35,6 @@
   background-color: #F0F8FF;
 }
 .tips img:hover {
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
 }
 /* EXAMPLES SECTION */
