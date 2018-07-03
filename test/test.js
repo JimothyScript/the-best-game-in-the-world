@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import App from '../src/components/App';
 const assert = require('assert');
 
@@ -7,20 +7,19 @@ describe('Function', () => {
     const arr = [[1,1,1],
                  [null,1,1],
                  [null,null,null]];
-    const test = new App;
-
+    const app = new App;
     it('should return null if POPULATED cell fewer than 2', () => {
       // expect(test.brain(0,0,arr)).toEqual(null);
-      assert.equal(test.brain(2,0,arr), null);
+      assert.equal(app.brain(2,0,arr), null);
     });
     it('should return 1 if POPULATED cell count between 2 and 3', () => {
-      assert.equal(test.brain(0,2,arr), 1);
+      assert.equal(app.brain(0,2,arr), 1);
     });
     it('should return null if POPULATED cell count greater than 3', () => {
-      assert.equal(test.brain(1,1,arr), null);
+      assert.equal(app.brain(1,1,arr), null);
     });
     it('should return 1 if EMPTY cell count 3 or 6', () => {
-      assert.equal(test.brain(1,0,arr), 1);
+      assert.equal(app.brain(1,0,arr), 1);
     });
   });
 });
