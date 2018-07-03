@@ -264,8 +264,15 @@ class App extends Component {
 
     }, this.turnSpeed);
   }
-  brain(row, col) {
-    const grid = this.state.grid[this.state.grid.length - 1];
+  brain(row, col, arr) {
+    let grid;
+
+    if (arr === undefined) {
+      grid = this.state.grid[this.state.grid.length - 1];
+    } else {
+      grid = arr;
+    }
+
     let neighborCount = 0;
     let currentCell;
 
