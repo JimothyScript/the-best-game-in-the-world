@@ -55,9 +55,9 @@ _After:_
 * __Any empty cell with exactly three or six neighbors becomes populated.__
 
 _Before:_
-![Rule 4 before image](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/4-before.png)
-_After:_
 ![Rule 4 before image](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/4-after.png)
+_After:_
+![Rule 4 after image](https://raw.githubusercontent.com/JamesScript7/the-best-game-in-the-world/master/public/images/rules/4-after.png)
 
 ## _To Start the Simulation:_
 
