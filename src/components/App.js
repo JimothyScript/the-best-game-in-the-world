@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-// Components
-import Menu from './Menu/Menu';
+
 import Board from './Board/Board';
+import Menu from './Menu/Menu';
 import Templates from './Templates/Templates';
+
 import './App.css';
 
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
 
     this.size = { rowLen: 50, colLen: 50 }
     this.turnSpeed = 80
-    // TEMPLATES
+    // TODO: migrate to external file
     this.replicator = [[null,null,1,1,1],[null,1,null,null,1],[1,null,null,null,1],[1,null,null,1,null],[1,1,1,null,null]];
     this.spaceship = [[null,1,1,1,1],[1,null,null,null,1],[null,null,null,null,1],[1,null,null,1,null]];
     this.glider = [[null,null,1],[1,null,1],[null,1,1]];
