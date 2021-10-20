@@ -9,6 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    // FIXME: grid should clear at some point?
     this.state = {
       grid: [this.initializeGame({rowLen: 50, colLen: 50}, false)],
       turnNumber: 0,
