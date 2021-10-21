@@ -13,9 +13,17 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "mocha": "mocha --compilers js:babel-core/register --require babel-register --require ignore-styles ./test/test.js --watch --watch-extensions jsx",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/node-logger": "^6.3.12",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.3.12",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
     "babel-preset-es2015": "^6.24.1",
@@ -44,6 +52,22 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "extends": ["react-app", "shared-config"],
+    "rules": {
+      "no-trailing-spaces": ["error", "always"]
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   }
 }
