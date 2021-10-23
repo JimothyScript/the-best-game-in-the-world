@@ -1,12 +1,12 @@
 import React from 'react';
-import './Templates.css';
+import './TemplateMenu.css';
 
-const Templates = ({generateTemplate, onDragStart}) => {
+const TemplateMenu = ({ generateTemplate, onDragStart }) => {
   const examples = ['Replicator', 'Spaceship', 'Glider', 'Oscillator', 'Beacon', 'Exploder', 'Combo'];
 
   return (
     <div className="templates-box">
-      <h2>Templates</h2>
+      <h2>Template Menu</h2>
       <p>Click to place randomly on the board or drag it! (grab it by the top left corner for best results)</p>
       <div className="tips">{
         examples.map((el, i) => {
@@ -17,7 +17,7 @@ const Templates = ({generateTemplate, onDragStart}) => {
                 draggable
                 onDragStart={(e) => onDragStart(e)}
                 src={`images/rules/${el.toLowerCase()}.png`}
-                alt={el}/>
+                alt={el.toLowerCase()}/>
             </div>
           )
         })
@@ -26,4 +26,4 @@ const Templates = ({generateTemplate, onDragStart}) => {
   )
 }
 
-export default Templates;
+export default TemplateMenu;

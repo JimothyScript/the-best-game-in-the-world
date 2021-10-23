@@ -5,6 +5,7 @@ import { expect } from 'chai';
 
 describe('Function', () => {
   const app = new App;
+
   describe('Brain', () => {
     const arr = [[1,1,1],
                  [null,1,1],
@@ -24,6 +25,7 @@ describe('Function', () => {
       assert.equal(app.brain(1,0,arr), 1);
     });
   });
+
   describe('GenerateNum', () => {
     it('shoud return a number greater than 0', () => {
       expect(app.generateNum()).to.be.above(0);
@@ -34,9 +36,7 @@ describe('Function', () => {
     });
   });
   // describe('', => {
-  //   it('', () => {
-  //
-  //   });
+  //   it('', () => {});
   // });
 });
 

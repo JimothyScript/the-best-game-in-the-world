@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cell = ({ row, r, populateCell, onDragDrop }) => {
+export default function Cell({ row, r, populateCell, onDragDrop }) {
   function onDragEnterOver(e){
     e.preventDefault();
   }
@@ -21,5 +21,3 @@ const Cell = ({ row, r, populateCell, onDragDrop }) => {
     })
   );
 }
-
-export default Cell;

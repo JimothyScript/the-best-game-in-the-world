@@ -1,7 +1,7 @@
 import React from 'react';
 import './Menu.css';
 
-const Menu = ({handleClick, turnNumber, start, pause, compare, cellCount}) => {
+export default function Menu ({handleClick, turnNumber, start, pause, compare, cellCount}) {
   const options = ['randomize', 'start', 'pause', 'resume', 'reset', 'compare'];
 
   // 'pause' and 'resume' will be locked initially
@@ -26,7 +26,7 @@ const Menu = ({handleClick, turnNumber, start, pause, compare, cellCount}) => {
   }
 
   return (
-    <div className="menu-box">
+    <div className="menu-container">
       <h1>TURN {turnNumber}</h1>
       <div className="menu-btns">{
         options.map((item, i) => {
@@ -41,5 +41,3 @@ const Menu = ({handleClick, turnNumber, start, pause, compare, cellCount}) => {
     </div>
   );
 }
-
-export default Menu;

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 
 import Board from './Board/Board';
-import Menu from './Menu/Menu';
-import Templates from './Templates/Templates';
+import Footer from './Footer';
+import Menu from './Menu';
+import TemplateMenu from './TemplateMenu';
+
+import templates from '../helpers/templates';
 
 import './App.css';
 
@@ -19,23 +22,17 @@ class App extends Component {
       compare: false,
       cells: false,
       cellCount: 0,
-      dragItem: null
+      dragItem: null,
     }
 
     this.size = { rowLen: 50, colLen: 50 }
     this.turnSpeed = 80
-    // TODO: migrate to external file
-    this.replicator = [[null,null,1,1,1],[null,1,null,null,1],[1,null,null,null,1],[1,null,null,1,null],[1,1,1,null,null]];
-    this.spaceship = [[null,1,1,1,1],[1,null,null,null,1],[null,null,null,null,1],[1,null,null,1,null]];
-    this.glider = [[null,null,1],[1,null,1],[null,1,1]];
-    this.oscillator = [[1],[1],[1]];
-    this.beacon = [[null,null,1,1],[null,null,1,1],[1,1,null,null],[1,1,null,null]];
-    this.exploder = [[null,1,null],[1,1,1],[1,null,1],[null,1,null]];
-    this.combo = [[null,1,1,1,1],[1,null,null,null,1],[null,1,null,null,1],[1,1,null,1,null],[null,1,null,null,null]];
   }
+
   generateNum() {
     return Math.ceil(Math.random() * 4);
   }
+
   initializeGame(size, random) {
     // Populate approximately 25%, which is around 625, out of 2,500 cells
     const { rowLen, colLen } = size;
@@ -64,9 +61,11 @@ class App extends Component {
 
     return initialGrid;
   }
+
   generateTemplate(e, gridRow, gridCell) {
-    const { grid, start, cellCount, dragItem } = this.state
+    const { grid, start, cellCount, dragItem } = this.state;
     if (!start) return;
+
     const templateGrid = grid[0];
     let count = cellCount;
     let attr, row, cell, arr;
@@ -79,32 +78,10 @@ class App extends Component {
       attr = e.target.getAttribute('alt');
     }
 
-    // Should probably move this out somewhere else...
-    switch(attr) {
-      case 'Replicator':
-        arr = this.replicator;
-        break;
-      case 'Spaceship':
-        arr = this.spaceship;
-        break;
-      case 'Glider':
-        arr = this.glider;
-        break;
-      case 'Oscillator':
-        arr = this.oscillator;
-        break;
-      case 'Beacon':
-        arr = this.beacon;
-        break;
-      case 'Exploder':
-        arr = this.exploder;
-        break;
-      case 'Combo':
-        arr = this.combo;
-        break;
-      default:
-        arr = [[null]];
-        break;
+    if (attr) {
+      arr = templates[attr];
+    } else {
+      arr = [[null]];
     }
 
     // row and cell adjuster for "edge" cases:
@@ -137,6 +114,7 @@ class App extends Component {
       cellCount: count
     });
   }
+
   populateCell(e) {
     const { grid, start, cellCount } = this.state;
     if (!start) return;
@@ -161,6 +139,7 @@ class App extends Component {
       cellCount: cellNum
     });
   }
+
   handleClick(e) {
     const { start, pause, compare, cellCount } = this.state;
     const buttonClicked = e.target.innerText;
@@ -241,6 +220,7 @@ class App extends Component {
         console.log('Something went wrong!');
     }
   }
+
   gameLoop() {
     const { rowLen, colLen } = this.size;
 
@@ -266,6 +246,7 @@ class App extends Component {
 
     }, this.turnSpeed);
   }
+
   brain(row, col, arr) {
     let grid;
 
@@ -299,10 +280,12 @@ class App extends Component {
     else
       return (neighborCount !== 0 && neighborCount % 3 === 0) ? 1 : null;
   }
+
   onDragStart(e) {
     const dragItem = e.target.getAttribute('alt');
     this.setState({ dragItem });
   }
+
   onDragDrop(e) {
     e.preventDefault(); // Needed in FireFox
     const row = e.target.getAttribute('data-row');
@@ -310,6 +293,7 @@ class App extends Component {
     // console.log(row, cell);
     this.generateTemplate(null, row, cell);
   }
+
   render() {
     const { grid, turnNumber, start, pause, compare, cellCount } = this.state;
     const currentGrid = grid.length - 1;
@@ -319,34 +303,25 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="template-container">
-          <Templates
-            generateTemplate={(e) => this.generateTemplate(e)}
-            onDragStart={(e) => this.onDragStart(e)} />
-        </div>
-        <div className="board-container">
-          <Board
-            grid={grid[latestTurn]}
-            populateCell={(row, col) => this.populateCell(row, col)}
-            onDragDrop={(e) => this.onDragDrop(e)} />
-          <footer>
-            <span>
-              <a href="https://github.com/JamesScript7/the-best-game-in-the-world" target="_blank" rel="noopener noreferrer">
-                Link to GitHub!
-              </a>
-            </span>
-            <small>&copy;2018 James Kim</small>
-          </footer>
-        </div>
-        <div className="menu-container">
-          <Menu
-            handleClick={(e) => this.handleClick(e)}
-            turnNumber={num}
-            start={start}
-            pause={pause}
-            compare={compare}
-            cellCount={cellCount} />
-        </div>
+        <TemplateMenu
+          generateTemplate={(e) => this.generateTemplate(e)}
+          onDragStart={(e) => this.onDragStart(e)} />
+
+        {/* TODO: fix Footer */}
+        <Board
+          grid={grid[latestTurn]}
+          populateCell={(row, col) => this.populateCell(row, col)}
+          onDragDrop={(e) => this.onDragDrop(e)}>
+          <Footer />
+        </Board>
+
+        <Menu
+          handleClick={(e) => this.handleClick(e)}
+          turnNumber={num}
+          start={start}
+          pause={pause}
+          compare={compare}
+          cellCount={cellCount} />
       </div>
     );
   }

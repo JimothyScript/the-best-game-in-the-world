@@ -1,7 +1,14 @@
-.menu-box {
+.menu-container {
+  display: inline-block;
+  margin-left: 15px;
+  padding: 8px;
+  align-items: center;
+  border: 1px solid #48C1F0;
+  border-radius: 20px;
   text-align: center;
   color: #303030;
 }
+
 .menu-btns button {
   font-size: 1.2em;
   font-weight: bold;
@@ -14,6 +21,7 @@
   border-radius: 40px;
   word-wrap: break-word;
 }
+
 .menu-btns button:focus {
   outline: none;
 }
@@ -24,6 +32,7 @@
   background-color: #95CC5D;
   border-color: #95CC5D;
 }
+
 .menu-btns button.start:hover {
   color: #95CC5D;
   background-color: #FFFFFF;
@@ -36,6 +45,7 @@
   background-color: #FFA500;
   border: 2px solid #FFA500;
 }
+
 .menu-btns button.pause:hover {
   color: #FFA500;
   background-color: #FFFFFF;
@@ -48,6 +58,7 @@
   background-color: #3C4F6F;
   border-color: #3C4F6F;
 }
+
 .menu-btns button.resume:hover {
   color: #3C4F6F;
   background-color: #FFFFFF;
@@ -60,6 +71,7 @@
   background-color: #DC143C;
   border-color: #DC143C;
 }
+
 .menu-btns button.reset:hover {
   color: #DC143C;
   background-color: #FFFFFF;
@@ -72,6 +84,7 @@
   background-color: #48C1F0;
   border-color: #48C1F0;
 }
+
 .menu-btns button.compare:hover {
   color: #48C1F0;
   background-color: #FFFFFF;
@@ -84,6 +97,7 @@
     background-color: #383838;
     border-color: #383838;
 }
+
 .menu-btns button.randomize:hover {
   color: #383838;
   background-color: #FFFFFF;
