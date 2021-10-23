@@ -9,16 +9,16 @@
 }
 
 /* EXAMPLES SECTION */
-.tips {
+.templatemenu__options {
   padding: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.tips p {
+.templatemenu__options p {
   margin: 6px 0 4px 0;
 }
-.tips div {
+.templatemenu__options div {
   width: 104px;
   height: 130px;
   margin: 3px;
@@ -28,13 +28,13 @@
   display: grid;
   justify-content: center;
 }
-.tips img {
+.templatemenu__options img {
   margin: 0 auto;
 }
-.tips div:hover {
+.templatemenu__options div:hover {
   background-color: #F0F8FF;
 }
-.tips img:hover {
+.templatemenu__options img:hover {
   /* transform: scale(1.05); */
 }
 /* EXAMPLES SECTION */

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Menu.css';
+import './ControlMenu.css';
 
 export default function Menu ({handleClick, turnNumber, start, pause, compare, cellCount}) {
   const options = ['randomize', 'start', 'pause', 'resume', 'reset', 'compare'];

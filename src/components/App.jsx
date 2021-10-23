@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Board from './Board/Board';
 import Footer from './Footer';
-import Menu from './Menu';
+import ControlMenu from './ControlMenu';
 import TemplateMenu from './TemplateMenu';
 
 import templates from '../helpers/templates';
@@ -315,7 +315,7 @@ class App extends Component {
           <Footer />
         </Board>
 
-        <Menu
+        <ControlMenu
           handleClick={(e) => this.handleClick(e)}
           turnNumber={num}
           start={start}
