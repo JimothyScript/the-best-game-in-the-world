@@ -3,23 +3,3 @@
   grid-template-columns: 20% 900px 20%;
   justify-content: center;
 }
-
-.templates-container {
-  padding: 8px;
-}
-
-footer {
-  display: flex;
-  padding: 4px 0;
-  text-align: left;
-  grid-column: 3/4;
-  justify-content: space-between;
-  align-items: center;
-}
-
-footer span a {
-  font-weight: bold;
-  display: inline-block;
-  text-decoration: none;
-  color: #228B22;
-}

@@ -8,18 +8,18 @@ describe('Function', () => {
 
   describe('Brain', () => {
     const arr = [[1,1,1],
-                 [null,1,1],
-                 [null,null,null]];
+                 [0,1,1],
+                 [0,0,0]];
 
-    it('should return null if POPULATED cell fewer than 2', () => {
-      // expect(test.brain(0,0,arr)).toEqual(null);
-      assert.equal(app.brain(2,0,arr), null);
+    it('should return 0 if POPULATED cell fewer than 2', () => {
+      // expect(test.brain(0,0,arr)).toEqual(0);
+      assert.equal(app.brain(2,0,arr), 0);
     });
     it('should return 1 if POPULATED cell count between 2 and 3', () => {
       assert.equal(app.brain(0,2,arr), 1);
     });
-    it('should return null if POPULATED cell count greater than 3', () => {
-      assert.equal(app.brain(1,1,arr), null);
+    it('should return 0 if POPULATED cell count greater than 3', () => {
+      assert.equal(app.brain(1,1,arr), 0);
     });
     it('should return 1 if EMPTY cell count 3 or 6', () => {
       assert.equal(app.brain(1,0,arr), 1);
@@ -42,6 +42,6 @@ describe('Function', () => {
 
 // Had issues with compiling CSS but added ignore-styles
 // function noop() {
-//   return null;
+//   return 0;
 // }
 // require.extensions['.css'] = noop;

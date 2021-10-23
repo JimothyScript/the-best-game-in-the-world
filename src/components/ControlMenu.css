@@ -1,4 +1,4 @@
-.menu-container {
+.controlmenu {
   display: inline-block;
   margin-left: 15px;
   padding: 8px;
@@ -9,7 +9,7 @@
   color: #303030;
 }
 
-.menu-btns button {
+.controlmenu__buttonwrap button {
   font-size: 1.2em;
   font-weight: bold;
   width: 80%;
@@ -22,97 +22,78 @@
   word-wrap: break-word;
 }
 
-.menu-btns button:focus {
+.controlmenu__buttonwrap button:focus {
   outline: none;
 }
 
-/* START */
-.menu-btns button.start {
+.controlmenu__buttonwrap button.start {
   color: #FFFFFF;
   background-color: #95CC5D;
   border-color: #95CC5D;
 }
 
-.menu-btns button.start:hover {
+.controlmenu__buttonwrap button.start:hover {
   color: #95CC5D;
   background-color: #FFFFFF;
 }
-/* START */
 
-/* PAUSE */
-.menu-btns button.pause {
+.controlmenu__buttonwrap button.pause {
   color: #FFFFFF;
   background-color: #FFA500;
   border: 2px solid #FFA500;
 }
 
-.menu-btns button.pause:hover {
+.controlmenu__buttonwrap button.pause:hover {
   color: #FFA500;
   background-color: #FFFFFF;
 }
-/* PAUSE */
 
-/* RESUME */
-.menu-btns button.resume {
+.controlmenu__buttonwrap button.resume {
   color: #FFFFFF;
   background-color: #3C4F6F;
   border-color: #3C4F6F;
 }
 
-.menu-btns button.resume:hover {
+.controlmenu__buttonwrap button.resume:hover {
   color: #3C4F6F;
   background-color: #FFFFFF;
 }
-/* RESUME */
 
-/* RESET */
-.menu-btns button.reset {
+.controlmenu__buttonwrap button.reset {
   color: #FFFFFF;
   background-color: #DC143C;
   border-color: #DC143C;
 }
 
-.menu-btns button.reset:hover {
+.controlmenu__buttonwrap button.reset:hover {
   color: #DC143C;
   background-color: #FFFFFF;
 }
-/* RESET */
 
-/* COMPARE */
-.menu-btns button.compare {
+.controlmenu__buttonwrap button.compare {
   color: #FFFFFF;
   background-color: #48C1F0;
   border-color: #48C1F0;
 }
 
-.menu-btns button.compare:hover {
+.controlmenu__buttonwrap button.compare:hover {
   color: #48C1F0;
   background-color: #FFFFFF;
 }
-/* COMPARE */
 
-/* RANDOMIZE */
-.menu-btns button.randomize {
+.controlmenu__buttonwrap button.randomize {
     color: #FFFFFF;
     background-color: #383838;
     border-color: #383838;
 }
 
-.menu-btns button.randomize:hover {
+.controlmenu__buttonwrap button.randomize:hover {
   color: #383838;
   background-color: #FFFFFF;
 }
-/* RANDOMIZE */
 
-/* LOCKED BUTTONS */
-.menu-btns button.randomize.lock,
-.menu-btns button.start.lock,
-.menu-btns button.pause.lock,
-.menu-btns button.resume.lock,
-.menu-btns button.reset.lock,
-.menu-btns button.compare.lock {
+.controlmenu__buttonwrap button.lock {
   color: #808080;
   background-color: #D3D3D3;
   border: 2px solid #D3D3D3;
 }
-/* LOCKED BUTTONS */

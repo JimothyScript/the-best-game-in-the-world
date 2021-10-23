@@ -1,43 +1,57 @@
 import React from 'react';
 import './ControlMenu.css';
 
-export default function Menu ({handleClick, turnNumber, start, pause, compare, cellCount}) {
-  const options = ['randomize', 'start', 'pause', 'resume', 'reset', 'compare'];
+export default function ControlMenu ({ handleClick, turnCount, start, pause, cellCount }) {
+  const CONTROL_OPTIONS = [
+    'randomize',
+    'start',
+    'pause',
+    'resume',
+    'reset',
+    'compare',
+  ];
 
-  // 'pause' and 'resume' will be locked initially
+  // NOTE: 'pause' and 'resume' will be locked initially
   if (start) {
     if (cellCount <= 0) {
-      options[1] = 'start lock';
+      CONTROL_OPTIONS[1] = 'start lock';
     }
-    options[2] = 'pause lock';
-    options[3] = 'resume lock';
-    options[5] = 'compare lock';
+
+    CONTROL_OPTIONS[2] = 'pause lock';
+    CONTROL_OPTIONS[3] = 'resume lock';
+    CONTROL_OPTIONS[5] = 'compare lock';
   } else {
-    options[1] = 'start lock';
-    options[0] = 'randomize lock';
+    CONTROL_OPTIONS[1] = 'start lock';
+    CONTROL_OPTIONS[0] = 'randomize lock';
+
     if (pause) {
-      options[3] = 'resume lock';
-      options[5] = 'compare lock';
+      CONTROL_OPTIONS[3] = 'resume lock';
+      CONTROL_OPTIONS[5] = 'compare lock';
     } else {
-      options[2] = 'pause lock';
-      options[3] = 'resume';
-      options[5] = 'compare';
+      CONTROL_OPTIONS[2] = 'pause lock';
+      CONTROL_OPTIONS[3] = 'resume';
+      CONTROL_OPTIONS[5] = 'compare';
     }
   }
 
   return (
-    <div className="menu-container">
-      <h1>TURN {turnNumber}</h1>
-      <div className="menu-btns">{
-        options.map((item, i) => {
-          return <button
-            key={i}
-            className={item}
-            onClick={(e) => handleClick(e)}>
-            {item.split(' ')[0].toUpperCase()}
-          </button>
-        })
-      }</div>
+    <div className="controlmenu">
+      <h1>
+        TURN {turnCount}
+      </h1>
+      <div className="controlmenu__buttonwrap">
+        { CONTROL_OPTIONS.map((option, i) => {
+            return (
+              <button
+                className={option}
+                key={i}
+                onClick={(e) => handleClick(e)}>
+                {option.split(' ')[0].toUpperCase()}
+              </button>
+            );
+          })
+        }
+      </div>
     </div>
   );
 }

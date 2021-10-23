@@ -13,7 +13,7 @@ const TEMPLATE_OPTIONS = [
 
 export default function TemplateMenu ({ generateTemplate, onDragStart }) {
   return (
-    <div className="templates-box">
+    <div className="templatesmenu">
       <h2>Template Menu</h2>
       <p>
         Click to place randomly on the board or drag it!
@@ -23,9 +23,10 @@ export default function TemplateMenu ({ generateTemplate, onDragStart }) {
       <div className="templatemenu__options">
         { TEMPLATE_OPTIONS.map((option, i) => {
             return (
-              <div key={i} onClick={(e) => generateTemplate(e)}>
-                <p>{option}</p>
+              <div className="templatemenu__option" key={i} onClick={(e) => generateTemplate(e)}>
+                <p className="templatemenu__title">{option}</p>
                 <img
+                  className="templatemenu__img"
                   draggable
                   onDragStart={(e) => onDragStart(e)}
                   src={`images/rules/${option.toLowerCase()}.png`}

@@ -3,7 +3,7 @@ import React from 'react';
 import Cell from './Cell';
 import './Board.css';
 
-const Board = ({ grid, populateCell, onDragDrop, children }) => {
+export default function Board ({ grid, populateCell, onDragDrop, children }) {
   return (
     <div className="board-container">
       { grid.map((row, i) => {
@@ -15,5 +15,3 @@ const Board = ({ grid, populateCell, onDragDrop, children }) => {
     </div>
   );
 };
-
-export default Board;

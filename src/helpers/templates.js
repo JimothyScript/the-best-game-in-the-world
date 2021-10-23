@@ -1,11 +1,11 @@
 const templates = {
-  beacon: [[null,null,1,1],[null,null,1,1],[1,1,null,null],[1,1,null,null]],
-  combo: [[null,1,1,1,1],[1,null,null,null,1],[null,1,null,null,1],[1,1,null,1,null],[null,1,null,null,null]],
-  exploder: [[null,1,null],[1,1,1],[1,null,1],[null,1,null]],
-  glider: [[null,null,1],[1,null,1],[null,1,1]],
+  beacon: [[0,0,1,1], [0,0,1,1], [1,1,0,0], [1,1,0,0]],
+  combo: [[0,1,1,1,1], [1,0,0,0,1], [0,1,0,0,1], [1,1,0,1,0], [0,1,0,0,0]],
+  exploder: [[0,1,0], [1,1,1], [1,0,1], [0,1,0]],
+  glider: [[0,0,1], [1,0,1], [0,1,1]],
   oscillator: [[1],[1],[1]],
-  replicator: [[null,null,1,1,1],[null,1,null,null,1],[1,null,null,null,1],[1,null,null,1,null],[1,1,1,null,null]],
-  spaceship: [[null,1,1,1,1],[1,null,null,null,1],[null,null,null,null,1],[1,null,null,1,null]],
+  replicator: [[0,0,1,1,1], [0,1,0,0,1], [1,0,0,0,1], [1,0,0,1,0], [1,1,1,0,0]],
+  spaceship: [[0,1,1,1,1], [1,0,0,0,1], [0,0,0,0,1], [1,0,0,1,0]],
 };
 
 export default templates;

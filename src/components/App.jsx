@@ -16,7 +16,7 @@ class App extends Component {
     // FIXME: grid should clear at some point?
     this.state = {
       grid: [this.initializeGame({rowLen: 50, colLen: 50}, false)],
-      turnNumber: 0,
+      turnCount: 0,
       start: true,
       pause: false,
       compare: false,
@@ -52,7 +52,7 @@ class App extends Component {
             cellArr.push(populate);
             maxRandomNum--;
           } else {
-            cellArr.push(null);
+            cellArr.push(0);
           }
       }
 
@@ -81,7 +81,7 @@ class App extends Component {
     if (attr) {
       arr = templates[attr];
     } else {
-      arr = [[null]];
+      arr = [[0]];
     }
 
     // row and cell adjuster for "edge" cases:
@@ -129,7 +129,7 @@ class App extends Component {
       populateGrid[row][col] = 1;
       cellNum++;
     } else {
-      populateGrid[row][col] = null;
+      populateGrid[row][col] = 0;
       cellNum--;
     }
 
@@ -200,7 +200,7 @@ class App extends Component {
 
         this.setState({
           grid: [newGrid],
-          turnNumber: 0,
+          turnCount: 0,
           start: true,
           pause: false,
           compare: false,
@@ -232,7 +232,7 @@ class App extends Component {
       for (let row = 0; row < rowLen; row++) {
         const cellArr = [];
         for (let col = 0; col < colLen; col++) {
-          // this.brain() checks neighbors and determines 1 or null
+          // this.brain() checks neighbors and determines 1 or 0
           cellArr.push(this.brain(row, col));
         }
 
@@ -241,7 +241,7 @@ class App extends Component {
 
       this.setState({
         grid: [...this.state.grid, newGrid],
-        turnNumber: this.state.turnNumber + 1
+        turnCount: this.state.turnCount + 1
       });
 
     }, this.turnSpeed);
@@ -273,12 +273,12 @@ class App extends Component {
 
     }
 
-    // if: Populated cell conditional is between 2 to 3 is true, everything else is null.
-    // else: Empty cell evenly divisible by 3 is true, everything else is null.
+    // if: Populated cell conditional is between 2 to 3 is true, everything else is 0.
+    // else: Empty cell evenly divisible by 3 is true, everything else is 0.
     if (currentCell)
-      return (neighborCount > 1 && neighborCount < 4) ? 1 : null;
+      return (neighborCount > 1 && neighborCount < 4) ? 1 : 0;
     else
-      return (neighborCount !== 0 && neighborCount % 3 === 0) ? 1 : null;
+      return (neighborCount !== 0 && neighborCount % 3 === 0) ? 1 : 0;
   }
 
   onDragStart(e) {
@@ -295,10 +295,10 @@ class App extends Component {
   }
 
   render() {
-    const { grid, turnNumber, start, pause, compare, cellCount } = this.state;
+    const { grid, turnCount, start, pause, compare, cellCount } = this.state;
     const currentGrid = grid.length - 1;
     // Selects previous grid if compare is true:
-    const num = compare ? turnNumber - 1 : turnNumber;
+    const num = compare ? turnCount - 1 : turnCount;
     const latestTurn = compare ? currentGrid - 1 : currentGrid;
 
     return (
@@ -317,10 +317,9 @@ class App extends Component {
 
         <ControlMenu
           handleClick={(e) => this.handleClick(e)}
-          turnNumber={num}
+          turnCount={num}
           start={start}
           pause={pause}
-          compare={compare}
           cellCount={cellCount} />
       </div>
     );

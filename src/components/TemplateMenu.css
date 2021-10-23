@@ -1,40 +1,37 @@
-.menu-box h2,
-.menu-box p {
-  margin: 0 0 8px 0;
-}
-.templates-box {
+.templatesmenu {
   text-align: center;
   color: #303030;
   padding: 10px;
 }
 
-/* EXAMPLES SECTION */
 .templatemenu__options {
   padding: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.templatemenu__options p {
+
+.templatemenu__options .templatemenu__option {
+  width: 104px;
+  margin: 3px;
+  padding: 10px 0;
+  border: 1px solid #d3d3d3;
+  border-radius: 8px;
+  color: #3c4f6f;
+}
+
+.templatemenu__options .templatemenu__option:hover {
+  background-color: #f0f8ff;
+}
+
+.templatemenu__options .templatemenu__title {
   margin: 6px 0 4px 0;
 }
-.templatemenu__options div {
-  width: 104px;
-  height: 130px;
-  margin: 3px;
-  border: 1px solid #D3D3D3;
-  border-radius: 8px;
-  color: #3C4F6F;
-  display: grid;
-  justify-content: center;
-}
-.templatemenu__options img {
+
+.templatemenu__options .templatemenu__img {
   margin: 0 auto;
 }
-.templatemenu__options div:hover {
-  background-color: #F0F8FF;
+
+.templatemenu__options .templatemenu__img:hover {
+  transform: scale(1.02);
 }
-.templatemenu__options img:hover {
-  /* transform: scale(1.05); */
-}
-/* EXAMPLES SECTION */
