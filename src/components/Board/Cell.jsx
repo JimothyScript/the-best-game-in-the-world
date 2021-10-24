@@ -16,7 +16,7 @@ export default function Cell({ row, r, populateCell, onDragDrop }) {
         draggable="false"
         onDragOver={(e) => onDragEnterOver(e)}
         onDrop={(e) => onDragDrop(e, 'complete')}>
-        {column && <img className="netscape-navigator" draggable="false" src="images/netscape.ico" data-row={r} data-cell={j} alt="netscape navigator logo"/>}
+        {column ? <img className="netscape-navigator" draggable="false" src="images/netscape.ico" data-row={r} data-cell={j} alt="netscape navigator logo"/> : ''}
       </div>
     })
   );

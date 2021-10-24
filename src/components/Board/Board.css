@@ -1,6 +1,5 @@
 .board-container {
   height: 900px;
-  align-items: center;
 }
 
 .cell-row {
@@ -11,13 +10,9 @@
 .cell-column {
   width: 18px;
   height: 18px;
-  border: 1px solid #D3D3D3;
+  border: 1px solid var(--color-lightgray);
 }
 
 .cell-column:hover {
-  background-color: #FFFF00;
-}
-
-.netscape-navigator {
-  width: 100%;
+  background-color: var(--color-skyblue);
 }

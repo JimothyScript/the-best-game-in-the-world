@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
 import Board from './Board/Board';
-import Footer from './Footer';
 import ControlMenu from './ControlMenu';
+import Footer from './Footer';
 import TemplateMenu from './TemplateMenu';
 
 import templates from '../helpers/templates';
+import { brain } from '../helpers/utils';
 
 import './App.css';
 
@@ -232,8 +233,7 @@ class App extends Component {
       for (let row = 0; row < rowLen; row++) {
         const cellArr = [];
         for (let col = 0; col < colLen; col++) {
-          // this.brain() checks neighbors and determines 1 or 0
-          cellArr.push(this.brain(row, col));
+          cellArr.push(brain(row, col, this.state.grid.at(-1)));
         }
 
         newGrid.push(cellArr); // push evaluated cells to newGrid
@@ -245,40 +245,6 @@ class App extends Component {
       });
 
     }, this.turnSpeed);
-  }
-
-  brain(row, col, arr) {
-    let grid;
-
-    if (arr === undefined) {
-      grid = this.state.grid[this.state.grid.length - 1];
-    } else {
-      grid = arr;
-    }
-
-    let neighborCount = 0;
-    let currentCell;
-
-    for (let i = -1; i < 2; i++) {
-      for (let j = -1; j < 2; j++) {
-        if (grid[row + i] && grid[col + j]) {
-          if (row + i === row && col + j === col) {
-            currentCell = grid[row + i][col + j];
-          } else {
-            // console.log(`grid[${row + i}][${col + j}] = ${grid[row + i][col + j]}`);
-            if (grid[row + i][col + j]) neighborCount++;
-          }
-        }
-      }
-
-    }
-
-    // if: Populated cell conditional is between 2 to 3 is true, everything else is 0.
-    // else: Empty cell evenly divisible by 3 is true, everything else is 0.
-    if (currentCell)
-      return (neighborCount > 1 && neighborCount < 4) ? 1 : 0;
-    else
-      return (neighborCount !== 0 && neighborCount % 3 === 0) ? 1 : 0;
   }
 
   onDragStart(e) {

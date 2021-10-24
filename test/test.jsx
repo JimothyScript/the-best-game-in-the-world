@@ -3,6 +3,8 @@ import App from '../src/components/App';
 import assert from 'assert';
 import { expect } from 'chai';
 
+import { brain } from '../src/helpers/utils'
+
 describe('Function', () => {
   const app = new App;
 
@@ -12,17 +14,17 @@ describe('Function', () => {
                  [0,0,0]];
 
     it('should return 0 if POPULATED cell fewer than 2', () => {
-      // expect(test.brain(0,0,arr)).toEqual(0);
-      assert.equal(app.brain(2,0,arr), 0);
+      // expect(brain(0,0,arr)).toEqual(0);
+      assert.equal(brain(2, 0, arr), 0);
     });
     it('should return 1 if POPULATED cell count between 2 and 3', () => {
-      assert.equal(app.brain(0,2,arr), 1);
+      assert.equal(brain(0, 2, arr), 1);
     });
     it('should return 0 if POPULATED cell count greater than 3', () => {
-      assert.equal(app.brain(1,1,arr), 0);
+      assert.equal(brain(1, 1, arr), 0);
     });
     it('should return 1 if EMPTY cell count 3 or 6', () => {
-      assert.equal(app.brain(1,0,arr), 1);
+      assert.equal(brain(1, 0, arr), 1);
     });
   });
 
@@ -35,6 +37,7 @@ describe('Function', () => {
       expect(app.generateNum()).to.be.below(5);
     });
   });
+
   // describe('', => {
   //   it('', () => {});
   // });
