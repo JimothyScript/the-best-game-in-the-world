@@ -1,12 +1,9 @@
 .controlmenu {
   display: inline-block;
   margin-left: 15px;
-  padding: 8px;
-  align-items: center;
-  border: 1px solid #48C1F0;
+  border: 1px solid var(--color-skyblue);
   border-radius: 20px;
   text-align: center;
-  color: #303030;
 }
 
 .controlmenu__buttonwrap button {
@@ -15,8 +12,7 @@
   width: 80%;
   margin-bottom: 30px;
   padding: 16px;
-  color: #FFFAFA;
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
   border: 2px solid;
   border-radius: 40px;
   word-wrap: break-word;
@@ -27,73 +23,79 @@
 }
 
 .controlmenu__buttonwrap button.start {
-  color: #FFFFFF;
-  background-color: #95CC5D;
-  border-color: #95CC5D;
+  color: var(--color-white);
+  background-color: var(--color-green);
+  border-color: var(--color-green);
 }
 
 .controlmenu__buttonwrap button.start:hover {
-  color: #95CC5D;
-  background-color: #FFFFFF;
+  color: var(--color-green);
+  background-color: var(--color-white);
+  border-color: var(--color-green);
 }
 
 .controlmenu__buttonwrap button.pause {
-  color: #FFFFFF;
-  background-color: #FFA500;
-  border: 2px solid #FFA500;
+  color: var(--color-white);
+  background-color: var(--color-orange);
+  border: 2px solid var(--color-orange);
 }
 
 .controlmenu__buttonwrap button.pause:hover {
-  color: #FFA500;
-  background-color: #FFFFFF;
+  color: var(--color-orange);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-orange);
 }
 
 .controlmenu__buttonwrap button.resume {
-  color: #FFFFFF;
-  background-color: #3C4F6F;
-  border-color: #3C4F6F;
+  color: var(--color-white);
+  background-color: var(--color-darkblue);
+  border-color: var(--color-darkblue);
 }
 
 .controlmenu__buttonwrap button.resume:hover {
-  color: #3C4F6F;
-  background-color: #FFFFFF;
+  color: var(--color-darkblue);
+  background-color: var(--color-white);
+  border-color: var(--color-darkblue);
 }
 
 .controlmenu__buttonwrap button.reset {
-  color: #FFFFFF;
-  background-color: #DC143C;
-  border-color: #DC143C;
+  color: var(--color-white);
+  background-color: var(--color-red);
+  border-color: var(--color-red);
 }
 
 .controlmenu__buttonwrap button.reset:hover {
-  color: #DC143C;
-  background-color: #FFFFFF;
+  color: var(--color-red);
+  background-color: var(--color-white);
+  border-color: var(--color-red);
 }
 
 .controlmenu__buttonwrap button.compare {
-  color: #FFFFFF;
-  background-color: #48C1F0;
-  border-color: #48C1F0;
+  color: var(--color-white);
+  background-color: var(--color-skyblue);
+  border-color: var(--color-skyblue);
 }
 
 .controlmenu__buttonwrap button.compare:hover {
-  color: #48C1F0;
-  background-color: #FFFFFF;
+  color: var(--color-skyblue);
+  background-color: var(--color-white);
+  border-color: var(--color-skyblue);
 }
 
 .controlmenu__buttonwrap button.randomize {
-    color: #FFFFFF;
-    background-color: #383838;
-    border-color: #383838;
+    color: var(--color-white);
+    background-color: var(--color-darkgray);
+    border-color: var(--color-darkgray);
 }
 
 .controlmenu__buttonwrap button.randomize:hover {
-  color: #383838;
-  background-color: #FFFFFF;
+  color: var(--color-darkgray);
+  background-color: var(--color-white);
+  border-color: var(--color-darkgray);
 }
 
 .controlmenu__buttonwrap button.lock {
-  color: #808080;
-  background-color: #D3D3D3;
-  border: 2px solid #D3D3D3;
+  color: var(--color-gray);
+  background-color: var(--color-lightgray);
+  border: 2px solid var(--color-lightgray);
 }
