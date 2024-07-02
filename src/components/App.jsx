@@ -10,6 +10,8 @@ import { brain } from '../helpers/utils';
 
 import './App.css';
 
+// TODO: refactor to use functional components
+
 class App extends Component {
   constructor(props) {
     super(props);
